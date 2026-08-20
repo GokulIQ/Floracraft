@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Wishlist - FloraCraft Botanical Store</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="/" class="brand-logo">
+          <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+          <span>Flora<span style="color:var(--accent);">Craft</span></span>
+        </a>
+
+        <nav class="d-none d-lg-block">
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html"><i class="fa-solid fa-store me-2 text-primary"></i>Home 1 - Gardening Store</a></li>
+                <li><a class="dropdown-item" href="home-2.html"><i class="fa-solid fa-tree me-2 text-success"></i>Home 2 - Nursery & Landscaping</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Shop</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Studios</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="customizer.html"><i class="fa-solid fa-wand-magic-sparkles me-2 text-accent"></i>Pot & Plant Pairer Studio</a></li>
+                <li><a class="dropdown-item" href="plant-calendar.html"><i class="fa-solid fa-calendar-check me-2 text-success"></i>Care & Watering Calendar</a></li>
+                <li><a class="dropdown-item" href="ar-visualizer.html"><i class="fa-solid fa-cube me-2 text-primary"></i>AR Room Visualizer</a></li>
+                <li><a class="dropdown-item" href="pot-calculator.html"><i class="fa-solid fa-calculator me-2 text-secondary"></i>Soil & Fertilizer Calculator</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="plant-care.html">Guides</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bulk-orders.html">B2B</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Pages</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                <li><a class="dropdown-item" href="pricing.html">Maintenance Plans</a></li>
+                <li><a class="dropdown-item active" href="wishlist.html">My Wishlist</a></li>
+                <li><a class="dropdown-item" href="compare.html">Product Compare</a></li>
+                <li><a class="dropdown-item" href="contact.html">Contact & FAQs</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="404.html">404 Error Page</a></li>
+                <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Search Bar -->
+        <form class="header-search-form d-none d-xl-block" action="products.html" method="GET">
+          <input type="text" name="search" placeholder="Search plants, terracotta pots...">
+          <button type="submit" class="search-submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-btn rtl-toggle-btn" title="Toggle Layout Direction">
+            <i class="fa-solid fa-globe"></i>
+          </button>
+          <button class="icon-btn theme-toggle-btn" title="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          
+          <button type="button" class="icon-btn cart-drawer-trigger" title="Shopping Cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-count cart-count-badge" style="display:none;">0</span>
+          </button>
+          <div class="auth-nav-container ms-1">
+            <a href="login.html" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="bg-surface-alt py-3 border-bottom">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">My Wishlist</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Wishlist Section -->
+  <div class="container py-5">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+      <div>
+        <h1 class="h2 fw-bold mb-1">Your Botanical Wishlist</h1>
+        <p class="text-muted small mb-0">Items saved for future planting and indoor styling.</p>
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="window.moveAllWishlistToCart()" id="moveAllBtn">
+        <i class="fa-solid fa-cart-arrow-down me-1"></i> Move All to Basket
+      </button>
+    </div>
+
+    <!-- Wishlist Items Grid -->
+    <div class="row g-4" id="wishlistContainer"></div>
+  </div>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping text-primary me-2"></i>Your Botanical Basket</h5>
+      <button type="button" class="btn-close" id="closeCartDrawerBtn" aria-label="Close"></button>
+    </div>
+    <div class="cart-drawer-body" id="cartDrawerItems"></div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="free-shipping-bar">
+        <div class="small fw-semibold" id="freeShippingText">Add $75.00 for FREE Shipping</div>
+        <div class="progress"><div class="progress-bar-fill" id="freeShippingProgress" style="width: 0%;"></div></div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="fw-bold">Estimated Subtotal:</span>
+        <span class="fw-bold fs-5 text-primary" id="cartDrawerSubtotal">$0.00</span>
+      </div>
+      <div class="d-grid gap-2">
+        <a href="cart.html" class="btn btn-outline-primary">View Shopping Bag</a>
+        <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav">
+    <ul class="mobile-nav-items">
+      <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+      <li><a href="products.html" class="mobile-nav-link"><i class="fa-solid fa-shop"></i><span>Shop</span></a></li>
+      <li><a href="wishlist.html" class="mobile-nav-link active"><i class="fa-solid fa-heart text-danger"></i><span class="mobile-nav-badge wishlist-count-badge" style="display:none;">0</span><span>Wishlist</span></a></li>
+      <li><a href="cart.html" class="mobile-nav-link"><i class="fa-solid fa-bag-shopping"></i><span class="mobile-nav-badge cart-count-badge" style="display:none;">0</span><span>Cart</span></a></li>
+      <li><a href="login.html" class="mobile-nav-link"><i class="fa-regular fa-user"></i><span>Sign In</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <!-- Top Feature / Trust Bar -->
+    <div class="footer-perks-bar border-bottom border-white-10 py-4 mb-5">
+      <div class="container">
+        <div class="row g-4 text-white">
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Free Nursery Shipping</div>
+              <div class="text-white-50 small">On all orders over $75</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <div>
+              <div class="fw-bold fs-6">30-Day Guarantee</div>
+              <div class="text-white-50 small">Healthy plant arrival promise</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <div class="fw-bold fs-6">100% Organic Grown</div>
+              <div class="text-white-50 small">Zero synthetic pesticides</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Botanist Support</div>
+              <div class="text-white-50 small">7 days a week plant care</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Brand & Contact Col -->
+        <div class="col-lg-4 col-md-6">
+          <a href="/" class="brand-logo mb-3">
+            <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+            <span>Flora<span style="color:var(--accent);">Craft</span></span>
+          </a>
+          <p class="text-white-50 mb-4 pe-lg-3">
+            Dedicated to bringing lush living greenery, artisanal pottery craftsmanship, and certified horticultural science into contemporary homes and workspaces.
+          </p>
+          <div class="footer-contact-info d-flex flex-column gap-2 text-white-50 small mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-location-dot text-primary-light"></i>
+              <span>742 Evergreen Botanical Way, Portland, OR 97201</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-phone text-primary-light"></i>
+              <span>+1 (800) 456-GROW (4769)</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-envelope text-primary-light"></i>
+              <span>care@floracraft-nursery.com</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-regular fa-clock text-primary-light"></i>
+              <span>Mon – Sun: 8:00 AM – 7:00 PM PST</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-link-btn" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-link-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-link-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Botanical Categories Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Botanical Shop</h5>
+          <ul class="footer-links">
+            <li><a href="products.html?category=indoor-plants"><i class="fa-solid fa-seedling text-success small"></i> Indoor Foliage</a></li>
+            <li><a href="products.html?category=outdoor-plants"><i class="fa-solid fa-tree text-primary-light small"></i> Outdoor Plants</a></li>
+            <li><a href="products.html?category=flower-pots"><i class="fa-solid fa-shapes text-warning small"></i> Terracotta & Pots</a></li>
+            <li><a href="products.html?category=seeds"><i class="fa-solid fa-wheat-awn text-success small"></i> Seeds & Bulbs</a></li>
+            <li><a href="products.html?category=soil-fertilizers"><i class="fa-solid fa-layer-group text-warning small"></i> Bio Soils & Food</a></li>
+            <li><a href="products.html?category=gardening-tools"><i class="fa-solid fa-scissors text-info small"></i> Gardening Tools</a></li>
+            <li><a href="products.html?category=plant-accessories"><i class="fa-solid fa-wand-magic-sparkles text-primary-light small"></i> Plant Accessories</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio & Services Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Studio & Care</h5>
+          <ul class="footer-links">
+            <li><a href="customizer.html">Pot & Plant Studio</a></li>
+            <li><a href="plant-calendar.html">Watering Calendar</a></li>
+            <li><a href="plant-care.html">Botanist Care Guides</a></li>
+            <li><a href="bulk-orders.html">B2B Wholesale Hub</a></li>
+            <li><a href="about.html">Our Nursery Story</a></li>
+            <li><a href="contact.html">Store Locator & Visits</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Payment Col -->
+        <div class="col-lg-4 col-md-6">
+          <h5>Botanical Newsletter</h5>
+          <p class="text-white-50 small mb-3">
+            Subscribe for seasonal propagation guides, rare specimen drops, and member-only 20% nursery discounts.
+          </p>
+          <form class="newsletter-form footer-newsletter mb-4" onsubmit="event.preventDefault(); window.showToast && window.showToast('Subscribed!', 'Welcome to FloraCraft Botanical Circle. Enjoy 20% off your next order!', 'success'); this.reset();">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter your email address..." required>
+              <button class="btn btn-primary" type="submit">Join Circle</button>
+            </div>
+          </form>
+
+          
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <div class="text-white-50 small text-center text-md-start">
+          © 2026 FloraCraft Botanical Co. All rights reserved. Handcrafted with eco-friendly love.
+        </div>
+        <div class="d-flex flex-wrap gap-3 small text-white-50">
+          <a href="about.html" class="text-white-50 text-decoration-none">Privacy Policy</a>
+          <span>•</span>
+          <a href="about.html" class="text-white-50 text-decoration-none">Terms of Service</a>
+          <span>•</span>
+          <a href="plant-care.html" class="text-white-50 text-decoration-none">Shipping & Returns</a>
+          <span>•</span>
+          <a href="contact.html" class="text-white-50 text-decoration-none">Store Map</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    function renderWishlistPage() {
+      const container = document.getElementById('wishlistContainer');
+      const moveAllBtn = document.getElementById('moveAllBtn');
+      if (!container || !window.FLORACRAFT_DATA) return;
+
+      const wishlistIds = window.getWishlist();
+      const products = window.FLORACRAFT_DATA.products.filter(p => wishlistIds.includes(p.id));
+
+      if (products.length === 0) {
+        if (moveAllBtn) moveAllBtn.style.display = 'none';
+        container.innerHTML = `
+          <div class="col-12 text-center py-5">
+            <div class="mb-3 text-muted" style="font-size:3.5rem; opacity:0.3;"><i class="fa-regular fa-heart"></i></div>
+            <h4 class="fw-bold">Your Wishlist is Empty</h4>
+            <p class="text-muted">You haven't saved any botanical favorites yet.</p>
+            <a href="products.html" class="btn btn-primary btn-sm mt-2">Discover Plants & Pots</a>
+          </div>
+        `;
+        return;
+      }
+
+      if (moveAllBtn) moveAllBtn.style.display = 'inline-flex';
+      container.innerHTML = products.map(p => `
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <div class="product-media">
+              <img src="${p.images[0]}" alt="${p.name}">
+              <div class="product-actions-bar">
+                <button class="action-btn-sm" title="Quick View" onclick="window.openQuickView('${p.id}')"><i class="fa-regular fa-eye"></i></button>
+                <button class="action-btn-sm active" title="Remove" onclick="window.toggleWishlist('${p.id}')"><i class="fa-solid fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <span class="product-category">${p.categoryName}</span>
+              <h3 class="product-title"><a href="product-details.html?id=${p.id}">${p.name}</a></h3>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="current-price">$${p.price.toFixed(2)}</span>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="window.moveWishlistItemToCart('${p.id}')">
+                  <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderWishlistPage();
+      window.addEventListener('floracraft_wishlist_updated', renderWishlistPage);
+    });
+  </script>
+</body>
+</html>

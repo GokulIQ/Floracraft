@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Doctor Clinic & Symptom Diagnostic - FloraCraft</title>
+  <meta name="description" content="Instant botanical symptom diagnosis for yellow leaves, spider mites, root rot, and pest infestations. Get customized treatment prescriptions.">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <style>
+    .symptom-card {
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      cursor: pointer;
+      background: var(--bg-surface);
+      transition: all var(--transition-fast);
+      height: 100%;
+    }
+    .symptom-card:hover, .symptom-card.active {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+    }
+    .symptom-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="/" class="brand-logo">
+          <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+          <span>Flora<span style="color:var(--accent);">Craft</span></span>
+        </a>
+
+        <nav class="d-none d-lg-block">
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html"><i class="fa-solid fa-store me-2 text-primary"></i>Home 1 - Gardening Store</a></li>
+                <li><a class="dropdown-item" href="home-2.html"><i class="fa-solid fa-tree me-2 text-success"></i>Home 2 - Nursery & Landscaping</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Studios</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="customizer.html"><i class="fa-solid fa-wand-magic-sparkles me-2 text-accent"></i>Pot & Plant Pairer Studio</a></li>
+                <li><a class="dropdown-item" href="plant-calendar.html"><i class="fa-solid fa-calendar-check me-2 text-success"></i>Care & Watering Calendar</a></li>
+                <li><a class="dropdown-item" href="ar-visualizer.html"><i class="fa-solid fa-cube me-2 text-primary"></i>AR Room Visualizer</a></li>
+                <li><a class="dropdown-item" href="pot-calculator.html"><i class="fa-solid fa-calculator me-2 text-secondary"></i>Soil & Fertilizer Calculator</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="plant-care.html">Guides</a></li>
+            <li class="nav-item"><a class="nav-link" href="bulk-orders.html">B2B</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                <li><a class="dropdown-item" href="pricing.html">Maintenance Plans</a></li>
+                <li><a class="dropdown-item" href="wishlist.html">My Wishlist</a></li>
+                <li><a class="dropdown-item" href="compare.html">Product Compare</a></li>
+                <li><a class="dropdown-item" href="contact.html">Contact & FAQs</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="404.html">404 Error Page</a></li>
+                <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Search Bar -->
+        <form class="header-search-form d-none d-xl-block" action="products.html" method="GET">
+          <input type="text" name="search" placeholder="Search plants, terracotta pots...">
+          <button type="submit" class="search-submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-btn rtl-toggle-btn" title="Toggle Layout Direction">
+            <i class="fa-solid fa-globe"></i>
+          </button>
+          <button class="icon-btn theme-toggle-btn" title="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button type="button" class="icon-btn cart-drawer-trigger" title="Cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-count cart-count-badge" style="display:none;">0</span>
+          </button>
+          <div class="auth-nav-container ms-1">
+            <a href="login.html" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <div class="bg-surface-alt py-5 border-bottom text-center">
+    <div class="container max-w-700 mx-auto">
+      <span class="badge-botanical badge-organic mb-2">Botanical Health Clinic</span>
+      <h1 class="h1 fw-bold mb-3">Interactive Plant Doctor & Symptom Diagnostic</h1>
+      <p class="text-muted lead">Is your plant showing signs of stress? Select the visual symptoms below to generate an instant diagnosis and step-by-step organic recovery checklist.</p>
+    </div>
+  </div>
+
+  <!-- Diagnostic Tool Container -->
+  <div class="container py-5">
+    
+    <!-- Step 1: Select Plant Type -->
+    <div class="card p-4 border-0 bg-surface shadow-sm rounded-4 mb-4">
+      <h4 class="fw-bold mb-3"><i class="fa-solid fa-seedling text-primary me-2"></i>1. Which Plant Family Are You Treating?</h4>
+      <div class="row g-3">
+        <div class="col-md-3 col-6">
+          <label class="form-check p-3 border rounded-3 d-flex align-items-center gap-2 cursor-pointer w-100 mb-0">
+            <input type="radio" name="plantFamily" value="aroid" class="form-check-input" checked>
+            <span class="small fw-bold">Tropical Aroid (Monstera, Pothos, Philodendron)</span>
+          </label>
+        </div>
+        <div class="col-md-3 col-6">
+          <label class="form-check p-3 border rounded-3 d-flex align-items-center gap-2 cursor-pointer w-100 mb-0">
+            <input type="radio" name="plantFamily" value="fig" class="form-check-input">
+            <span class="small fw-bold">Ficus & Trees (Fiddle Fig, Rubber Tree)</span>
+          </label>
+        </div>
+        <div class="col-md-3 col-6">
+          <label class="form-check p-3 border rounded-3 d-flex align-items-center gap-2 cursor-pointer w-100 mb-0">
+            <input type="radio" name="plantFamily" value="succulent" class="form-check-input">
+            <span class="small fw-bold">Succulents & Snake Plants</span>
+          </label>
+        </div>
+        <div class="col-md-3 col-6">
+          <label class="form-check p-3 border rounded-3 d-flex align-items-center gap-2 cursor-pointer w-100 mb-0">
+            <input type="radio" name="plantFamily" value="perennial" class="form-check-input">
+            <span class="small fw-bold">Outdoor Flowering & Perennials</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Symptom Selector Grid -->
+    <div class="card p-4 p-md-5 border-0 bg-surface shadow-sm rounded-4 mb-5">
+      <h4 class="fw-bold mb-4"><i class="fa-solid fa-stethoscope text-primary me-2"></i>2. Select The Primary Observable Symptom</h4>
+
+      <div class="row g-4" id="symptomsGrid">
+        <div class="col-12 col-md-4 col-sm-6">
+          <div class="symptom-card active" data-symptom="yellow-leaves">
+            <div class="symptom-icon"><i class="fa-solid fa-leaf text-warning"></i></div>
+            <h5 class="fw-bold mb-1">Yellowing Foliage</h5>
+            <p class="small text-muted mb-0">Lower leaves turning soft yellow with soggy soil conditions.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 col-sm-6">
+          <div class="symptom-card" data-symptom="brown-tips">
+            <div class="symptom-icon"><i class="fa-solid fa-sun-plant-wilt text-danger"></i></div>
+            <h5 class="fw-bold mb-1">Brown Crispy Tips & Edges</h5>
+            <p class="small text-muted mb-0">Dry, crunchy leaf borders and lack of new tender growth.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 col-sm-6">
+          <div class="symptom-card" data-symptom="drooping">
+            <div class="symptom-icon"><i class="fa-solid fa-plant-wilt text-primary"></i></div>
+            <h5 class="fw-bold mb-1">Severe Drooping & Wilting</h5>
+            <p class="small text-muted mb-0">Stems falling limp despite recent sporadic watering.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 col-sm-6">
+          <div class="symptom-card" data-symptom="spider-mites">
+            <div class="symptom-icon"><i class="fa-solid fa-spider text-secondary"></i></div>
+            <h5 class="fw-bold mb-1">Fine Webbing & Stippling</h5>
+            <p class="small text-muted mb-0">Silky tiny webs under leaf joints and speckled discoloration.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 col-sm-6">
+          <div class="symptom-card" data-symptom="fungus-gnats">
+            <div class="symptom-icon"><i class="fa-solid fa-bugs text-dark"></i></div>
+            <h5 class="fw-bold mb-1">Flying Soil Gnats</h5>
+            <p class="small text-muted mb-0">Small black flies emerging from topsoil when watered.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 col-sm-6">
+          <div class="symptom-card" data-symptom="root-rot">
+            <div class="symptom-icon"><i class="fa-solid fa-skull text-danger"></i></div>
+            <h5 class="fw-bold mb-1">Mushy Black Stem Base</h5>
+            <p class="small text-muted mb-0">Foul sour soil odor and black mushy base near root line.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button id="generatePrescriptionBtn" class="btn btn-primary btn-lg px-5">
+          <i class="fa-solid fa-file-prescription me-2"></i> Generate Botanist Prescription
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 3: Interactive Prescription Output Card -->
+    <div class="card p-4 p-md-5 border-2 border-primary bg-surface shadow-lg rounded-4" id="prescriptionResultCard" style="display:none;">
+      <div class="d-flex flex-wrap align-items-center justify-content-between pb-3 border-bottom mb-4">
+        <div>
+          <span class="badge bg-primary text-white px-3 py-1 rounded-pill mb-1">Official Botanical Rx</span>
+          <h3 class="fw-bold mb-0" id="rxTitle">Diagnosis: Moisture Saturation Stress</h3>
+        </div>
+        <button class="btn btn-outline-secondary btn-sm mt-2 mt-sm-0" onclick="window.print()">
+          <i class="fa-solid fa-print me-1"></i> Print Care Plan
+        </button>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <h5 class="fw-bold mb-3"><i class="fa-solid fa-circle-info text-primary me-2"></i>Root Cause Pathology</h5>
+          <p class="text-muted" id="rxDescription">
+            Your plant is experiencing root hypoxia caused by over-retentive potting soil and insufficient aeration. Water is lingering around feeder root hairs for over 8 consecutive days.
+          </p>
+
+          <h5 class="fw-bold mt-4 mb-3"><i class="fa-solid fa-list-check text-success me-2"></i>5-Step Organic Recovery Checklist</h5>
+          <ul class="list-unstyled" id="rxChecklist">
+            <!-- Dynamic checklist -->
+          </ul>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card p-4 border-0 bg-surface-alt rounded-4">
+            <h5 class="fw-bold mb-3"><i class="fa-solid fa-box-tissue text-accent me-2"></i>Recommended Rescue Kit</h5>
+            <div id="rxProductRescue">
+              <!-- Dynamic Product Card -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping text-primary me-2"></i>Your Botanical Basket</h5>
+      <button type="button" class="btn-close" id="closeCartDrawerBtn" aria-label="Close"></button>
+    </div>
+    <div class="cart-drawer-body" id="cartDrawerItems"></div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="free-shipping-bar">
+        <div class="small fw-semibold" id="freeShippingText">Add $75.00 for FREE Shipping</div>
+        <div class="progress"><div class="progress-bar-fill" id="freeShippingProgress" style="width: 0%;"></div></div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="fw-bold">Estimated Subtotal:</span>
+        <span class="fw-bold fs-5 text-primary" id="cartDrawerSubtotal">$0.00</span>
+      </div>
+      <div class="d-grid gap-2">
+        <a href="cart.html" class="btn btn-outline-primary">View Shopping Bag</a>
+        <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav">
+    <ul class="mobile-nav-items">
+      <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+      <li><a href="products.html" class="mobile-nav-link"><i class="fa-solid fa-shop"></i><span>Shop</span></a></li>
+      <li><a href="javascript:void(0)" class="mobile-nav-link cart-drawer-trigger"><i class="fa-solid fa-bag-shopping"></i><span class="mobile-nav-badge cart-count-badge" style="display:none;">0</span><span>Cart</span></a></li>
+      <li><a href="login.html" class="mobile-nav-link"><i class="fa-regular fa-user"></i><span>Sign In</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <!-- Top Feature / Trust Bar -->
+    <div class="footer-perks-bar border-bottom border-white-10 py-4 mb-5">
+      <div class="container">
+        <div class="row g-4 text-white">
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Free Nursery Shipping</div>
+              <div class="text-white-50 small">On all orders over $75</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <div>
+              <div class="fw-bold fs-6">30-Day Guarantee</div>
+              <div class="text-white-50 small">Healthy plant arrival promise</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <div class="fw-bold fs-6">100% Organic Grown</div>
+              <div class="text-white-50 small">Zero synthetic pesticides</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Botanist Support</div>
+              <div class="text-white-50 small">7 days a week plant care</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Brand & Contact Col -->
+        <div class="col-lg-4 col-md-6">
+          <a href="/" class="brand-logo mb-3">
+            <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+            <span>Flora<span style="color:var(--accent);">Craft</span></span>
+          </a>
+          <p class="text-white-50 mb-4 pe-lg-3">
+            Dedicated to bringing lush living greenery, artisanal pottery craftsmanship, and certified horticultural science into contemporary homes and workspaces.
+          </p>
+          <div class="footer-contact-info d-flex flex-column gap-2 text-white-50 small mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-location-dot text-primary-light"></i>
+              <span>742 Evergreen Botanical Way, Portland, OR 97201</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-phone text-primary-light"></i>
+              <span>+1 (800) 456-GROW (4769)</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-envelope text-primary-light"></i>
+              <span>care@floracraft-nursery.com</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-regular fa-clock text-primary-light"></i>
+              <span>Mon – Sun: 8:00 AM – 7:00 PM PST</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-link-btn" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-link-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-link-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Botanical Categories Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Botanical Shop</h5>
+          <ul class="footer-links">
+            <li><a href="products.html?category=indoor-plants"><i class="fa-solid fa-seedling text-success small"></i> Indoor Foliage</a></li>
+            <li><a href="products.html?category=outdoor-plants"><i class="fa-solid fa-tree text-primary-light small"></i> Outdoor Plants</a></li>
+            <li><a href="products.html?category=flower-pots"><i class="fa-solid fa-shapes text-warning small"></i> Terracotta & Pots</a></li>
+            <li><a href="products.html?category=seeds"><i class="fa-solid fa-wheat-awn text-success small"></i> Seeds & Bulbs</a></li>
+            <li><a href="products.html?category=soil-fertilizers"><i class="fa-solid fa-layer-group text-warning small"></i> Bio Soils & Food</a></li>
+            <li><a href="products.html?category=gardening-tools"><i class="fa-solid fa-scissors text-info small"></i> Gardening Tools</a></li>
+            <li><a href="products.html?category=plant-accessories"><i class="fa-solid fa-wand-magic-sparkles text-primary-light small"></i> Plant Accessories</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio & Services Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Studio & Care</h5>
+          <ul class="footer-links">
+            <li><a href="customizer.html">Pot & Plant Studio</a></li>
+            <li><a href="plant-calendar.html">Watering Calendar</a></li>
+            <li><a href="plant-care.html">Botanist Care Guides</a></li>
+            <li><a href="bulk-orders.html">B2B Wholesale Hub</a></li>
+            <li><a href="about.html">Our Nursery Story</a></li>
+            <li><a href="contact.html">Store Locator & Visits</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Payment Col -->
+        <div class="col-lg-4 col-md-6">
+          <h5>Botanical Newsletter</h5>
+          <p class="text-white-50 small mb-3">
+            Subscribe for seasonal propagation guides, rare specimen drops, and member-only 20% nursery discounts.
+          </p>
+          <form class="newsletter-form footer-newsletter mb-4" onsubmit="event.preventDefault(); window.showToast && window.showToast('Subscribed!', 'Welcome to FloraCraft Botanical Circle. Enjoy 20% off your next order!', 'success'); this.reset();">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter your email address..." required>
+              <button class="btn btn-primary" type="submit">Join Circle</button>
+            </div>
+          </form>
+
+          
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <div class="text-white-50 small text-center text-md-start">
+          © 2026 FloraCraft Botanical Co. All rights reserved. Handcrafted with eco-friendly love.
+        </div>
+        <div class="d-flex flex-wrap gap-3 small text-white-50">
+          <a href="about.html" class="text-white-50 text-decoration-none">Privacy Policy</a>
+          <span>•</span>
+          <a href="about.html" class="text-white-50 text-decoration-none">Terms of Service</a>
+          <span>•</span>
+          <a href="plant-care.html" class="text-white-50 text-decoration-none">Shipping & Returns</a>
+          <span>•</span>
+          <a href="contact.html" class="text-white-50 text-decoration-none">Store Map</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    const RX_DATABASE = {
+      "yellow-leaves": {
+        title: "Diagnosis: Moisture Saturation & Root Hypoxia",
+        desc: "Overly dense soil is preventing root gas exchange, suffocating hairs and causing lower foliage to abandon chlorophyll.",
+        steps: [
+          "Cease all watering for 7-10 days until top 2.5 inches of soil are bone dry.",
+          "Gently aerate topsoil using a wooden chopstick or precision garden fork.",
+          "Relocate plant 2 feet closer to filtered morning sunshine to stimulate transpiration.",
+          "Check pot base to ensure drainage holes are completely unobstructed.",
+          "Repot into coarse perlite bio-active mix if soil remains soggy past day 10."
+        ],
+        product: { id: "prod-14", name: "Organic Potting Soil (15L)", price: 18.00, img: "assets/images/products/bio-potting-soil.jpg" }
+      },
+      "brown-tips": {
+        title: "Diagnosis: Low Atmospheric Humidity & Sun Scorch",
+        desc: "Ambient indoor relative humidity is below 40%, causing cell walls along the leaf margins to desiccate and crisp.",
+        steps: [
+          "Trim only the dry brown edges with sterilized pruning shears, leaving 1mm border.",
+          "Mist foliage 3-4 times weekly using a fine brass atomizing mister.",
+          "Move away from direct heat radiators and AC forced-air vents.",
+          "Place a pebble water humidity tray directly beneath the planter base."
+        ],
+        product: { id: "prod-20", name: "FloraCraft Vintage Watering Can", price: 34.00, img: "assets/images/products/watering-can-1.jpg" }
+      },
+      "spider-mites": {
+        title: "Diagnosis: Tetranychidae (Spider Mite) Infestation",
+        desc: "Microscopic arachnid pests thrive in dry air, piercing leaf epidermis and siphoning essential sap liquids.",
+        steps: [
+          "Immediately quarantine plant from all other houseplants.",
+          "Shower foliage thoroughly in lukewarm water to dislodge pest colonies.",
+          "Apply cold-pressed neem oil and castile soap foliar emulsion at dusk.",
+          "Repeat application every 4 days for a full 2-week cycle."
+        ],
+        product: { id: "prod-18", name: "Japanese Steel Pruning Shears", price: 24.00, img: "assets/images/products/pruning-shears-1.jpg" }
+      },
+      "fungus-gnats": {
+        title: "Diagnosis: Bradysia (Fungus Gnat) Larval Infestation",
+        desc: "Damp, decaying organic matter on topsoil is providing breeding habitat for fungus gnat larvae that chew fine feeder roots.",
+        steps: [
+          "Allow top 2 inches of soil to completely dry between hydration sessions.",
+          "Topdress soil with 1/2 inch of coarse horticultural sand or perlite.",
+          "Apply diluted hydrogen peroxide (1:4 ratio) to kill larvae on contact."
+        ],
+        product: { id: "prod-16", name: "Organic Neem Cake Fertilizer", price: 14.00, img: "assets/images/products/neem-fertilizer-1.jpg" }
+      },
+      "drooping": {
+        title: "Diagnosis: Severe Dehydration or Root-Bound Pot",
+        desc: "Roots have filled the entire planter volume, exhausting available moisture within 24 hours of watering.",
+        steps: [
+          "Perform deep bottom-watering by soaking pot base in a bowl of water for 30 mins.",
+          "Inspect drainage hole for thick spiraling roots seeking space.",
+          "Size up to an 8 or 10-inch terracotta planter with fresh aeration mix."
+        ],
+        product: { id: "prod-10", name: "Terracotta Garden Pot with Saucer", price: 22.50, img: "assets/images/products/terracotta-pot-1.jpg" }
+      },
+      "root-rot": {
+        title: "Diagnosis: Pythium & Phytophthora (Root Rot Disease)",
+        desc: "Anaerobic pathogens have invaded damaged roots in stagnantly wet conditions, causing root tissue liquefaction.",
+        steps: [
+          "Unpot plant immediately and wash all remaining soil from root system.",
+          "Surgically cut away all brown, black, or mushy roots with clean shears.",
+          "Soak remaining healthy white roots in mild anti-fungal copper solution.",
+          "Repot into a sterile, ultra-draining terracotta pot with 40% perlite."
+        ],
+        product: { id: "prod-14", name: "Organic Potting Soil (15L)", price: 18.00, img: "assets/images/products/bio-potting-soil.jpg" }
+      }
+    };
+
+    let activeSymptomKey = "yellow-leaves";
+
+    document.querySelectorAll('.symptom-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.symptom-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        activeSymptomKey = card.getAttribute('data-symptom');
+      });
+    });
+
+    document.getElementById('generatePrescriptionBtn')?.addEventListener('click', () => {
+      const rxData = RX_DATABASE[activeSymptomKey] || RX_DATABASE["yellow-leaves"];
+      
+      document.getElementById('rxTitle').textContent = rxData.title;
+      document.getElementById('rxDescription').textContent = rxData.desc;
+
+      document.getElementById('rxChecklist').innerHTML = rxData.steps.map((step, idx) => `
+        <li class="d-flex align-items-start gap-2 mb-2">
+          <i class="fa-solid fa-circle-check text-success mt-1"></i>
+          <span><strong>Step ${idx+1}:</strong> ${step}</span>
+        </li>
+      `).join('');
+
+      document.getElementById('rxProductRescue').innerHTML = `
+        <div class="text-center">
+          <img src="${rxData.product.img}" alt="${rxData.product.name}" class="rounded-3 img-fluid mb-2" style="max-height:120px; object-fit:cover;">
+          <h6 class="fw-bold mb-1">${rxData.product.name}</h6>
+          <div class="text-primary fw-bold mb-3">$${rxData.product.price.toFixed(2)}</div>
+          <button class="btn btn-primary btn-sm w-100" onclick="window.addToCart('${rxData.product.id}', 1)"><i class="fa-solid fa-cart-plus me-1"></i> Add Rescue Item</button>
+        </div>
+      `;
+
+      const card = document.getElementById('prescriptionResultCard');
+      card.style.display = 'block';
+      card.scrollIntoView({ behavior: 'smooth' });
+      window.showToast("Prescription Generated", "Your customized botanical care plan is ready below.", "success");
+    });
+  </script>
+</body>
+</html>

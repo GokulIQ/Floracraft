@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - FloraCraft Botanical Store</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="/" class="brand-logo">
+          <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+          <span>Flora<span style="color:var(--accent);">Craft</span></span>
+        </a>
+
+        <div class="d-none d-md-flex align-items-center gap-3 text-muted small fw-semibold">
+          <span class="text-primary"><i class="fa-solid fa-circle-check me-1"></i> 1. Basket</span>
+          <span><i class="fa-solid fa-chevron-right fs-xs"></i></span>
+          <span class="text-primary fw-bold"><i class="fa-solid fa-circle-dot me-1"></i> 2. Shipping & Payment</span>
+          <span><i class="fa-solid fa-chevron-right fs-xs"></i></span>
+          <span><i class="fa-regular fa-circle me-1"></i> 3. Order Invoice</span>
+        </div>
+
+        <a href="cart.html" class="btn btn-outline-secondary btn-sm">
+          <i class="fa-solid fa-arrow-left me-1"></i> Return to Cart
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Section -->
+  <div class="container py-5">
+    <h1 class="h2 fw-bold mb-4">Complete Your Order</h1>
+
+    <div class="row g-5">
+      
+      <!-- Checkout Forms Column -->
+      <div class="col-lg-7">
+        <form id="mainCheckoutForm">
+          
+          <!-- Step 1: Customer & Shipping Details -->
+          <div class="card p-4 border-0 bg-surface shadow-sm rounded-4 mb-4">
+            <h4 class="fw-bold mb-3"><i class="fa-solid fa-location-dot text-primary me-2"></i>1. Shipping Address</h4>
+            
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Full Name</label>
+                <input type="text" id="checkoutFullName" class="form-control" placeholder="Eleanor Vance" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Email Address</label>
+                <input type="email" id="checkoutEmail" class="form-control" placeholder="gardener@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Phone Number</label>
+                <input type="tel" id="checkoutPhone" class="form-control" placeholder="+1 (555) 234-8901" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Street Address</label>
+                <input type="text" id="checkoutAddress" class="form-control" placeholder="742 Evergreen Terrace" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">City</label>
+                <input type="text" id="checkoutCity" class="form-control" placeholder="Portland" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">State & Postal Zip</label>
+                <input type="text" id="checkoutZip" class="form-control" placeholder="OR 97201" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-bold">Delivery Instructions (Optional)</label>
+                <input type="text" id="checkoutNotes" class="form-control" placeholder="e.g. Leave under covered front porch near potted ferns.">
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Shipping Method -->
+          <div class="card p-4 border-0 bg-surface shadow-sm rounded-4 mb-4">
+            <h4 class="fw-bold mb-3"><i class="fa-solid fa-truck-fast text-primary me-2"></i>2. Delivery Method</h4>
+            
+            <div class="d-flex flex-column gap-3">
+              <label class="card p-3 border rounded-3 d-flex flex-row align-items-center justify-content-between cursor-pointer">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="radio" name="shippingMethod" value="0.00" data-method-name="Standard Climate Ground" class="form-check-input" checked>
+                  <div>
+                    <div class="fw-bold">Standard Climate Ground (3-5 Business Days)</div>
+                    <small class="text-muted">Thermal insulated protective plant packaging</small>
+                  </div>
+                </div>
+                <span class="fw-bold text-success">Included / Free over $75</span>
+              </label>
+
+              <label class="card p-3 border rounded-3 d-flex flex-row align-items-center justify-content-between cursor-pointer">
+                <div class="d-flex align-items-center gap-3">
+                  <input type="radio" name="shippingMethod" value="14.99" data-method-name="Express Botanical Air" class="form-check-input">
+                  <div>
+                    <div class="fw-bold">Express Botanical Air (1-2 Business Days)</div>
+                    <small class="text-muted">Priority courier handling for sensitive flora</small>
+                  </div>
+                </div>
+                <span class="fw-bold">$14.99</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3: Payment Method Simulation -->
+          <div class="card p-4 border-0 bg-surface shadow-sm rounded-4 mb-4">
+            <h4 class="fw-bold mb-3"><i class="fa-solid fa-credit-card text-primary me-2"></i>3. Payment Method</h4>
+            
+            <div class="d-flex gap-2 mb-4">
+              <button type="button" class="btn btn-outline-primary btn-sm payment-pill-btn active" data-target="panelCreditCard">
+                <i class="fa-regular fa-credit-card me-1"></i> Credit Card
+              </button>
+              <button type="button" class="btn btn-outline-primary btn-sm payment-pill-btn" data-target="panelPayPal">
+                <i class="fa-brands fa-paypal me-1"></i> PayPal
+              </button>
+              <button type="button" class="btn btn-outline-primary btn-sm payment-pill-btn" data-target="panelCOD">
+                <i class="fa-solid fa-hand-holding-dollar me-1"></i> Cash on Delivery
+              </button>
+            </div>
+
+            <!-- Credit Card Panel -->
+            <div class="payment-method-panel" id="panelCreditCard">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label small fw-bold">Card Number</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="4242 •••• •••• 4242" value="4242 8490 2849 9201">
+                    <span class="input-group-text"><i class="fa-brands fa-cc-visa text-primary fs-5"></i></span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">Expiry Date</label>
+                  <input type="text" class="form-control" placeholder="MM/YY" value="08/28">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold">Security CVV</label>
+                  <input type="password" class="form-control" placeholder="•••" value="892">
+                </div>
+              </div>
+            </div>
+
+            <!-- PayPal Panel -->
+            <div class="payment-method-panel text-center py-3" id="panelPayPal" style="display:none;">
+              <i class="fa-brands fa-paypal text-primary fs-1 mb-2"></i>
+              <p class="text-muted small">You will simulate instant authentication with PayPal express upon clicking Place Order.</p>
+            </div>
+
+            <!-- COD Panel -->
+            <div class="payment-method-panel text-center py-3" id="panelCOD" style="display:none;">
+              <i class="fa-solid fa-handshake text-success fs-1 mb-2"></i>
+              <p class="text-muted small">Pay cash or card directly to our certified botanical courier at your doorstep upon plant health inspection.</p>
+            </div>
+          </div>
+
+          <!-- Submit Order Button -->
+          <button type="submit" class="btn btn-primary btn-lg w-100 py-3 shadow-lg">
+            <i class="fa-solid fa-lock me-2"></i> Place Botanical Order Now
+          </button>
+        </form>
+      </div>
+
+      <!-- Order Review Sidebar Column -->
+      <div class="col-lg-5">
+        <div class="card p-4 border-0 bg-surface shadow-md rounded-4 sticky-top" style="top: 100px;">
+          <h4 class="fw-bold mb-3">Order Items Summary</h4>
+
+          <div id="checkoutItemsList" class="mb-3" style="max-height: 280px; overflow-y:auto;"></div>
+
+          <!-- Coupon Input in Checkout -->
+          <form id="checkoutCouponForm" class="mb-3">
+            <div class="input-group">
+              <input type="text" id="checkoutCouponInput" class="form-control" placeholder="Promo code...">
+              <button class="btn btn-outline-primary" type="submit">Apply</button>
+            </div>
+          </form>
+
+          <div class="d-flex justify-content-between mb-2">
+            <span class="text-muted">Subtotal:</span>
+            <span class="fw-bold" id="checkoutSubtotal">$0.00</span>
+          </div>
+
+          <div class="d-flex justify-content-between mb-2 text-success" id="checkoutDiscountRow" style="display:none;">
+            <span>Discount Applied:</span>
+            <span class="fw-bold" id="checkoutDiscountAmount">-$0.00</span>
+          </div>
+
+          <div class="d-flex justify-content-between mb-2">
+            <span class="text-muted">Shipping:</span>
+            <span class="fw-bold" id="checkoutShippingCost">FREE</span>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <span class="text-muted">Tax (5%):</span>
+            <span class="fw-bold" id="checkoutTax">$0.00</span>
+          </div>
+
+          <hr>
+
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="fw-bold fs-5">Total To Pay:</span>
+            <span class="fw-bold fs-3 text-primary" id="checkoutGrandTotal">$0.00</span>
+          </div>
+
+          <div class="card p-3 border-0 bg-surface-alt rounded-3 small text-muted">
+            <i class="fa-solid fa-seedling text-primary me-1"></i> Every order plants 1 native wildflower in our nursery pollinator reserve.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Order Confirmation Success & Invoice Modal -->
+  <div class="modal fade" id="orderSuccessModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title fw-bold"><i class="fa-solid fa-circle-check me-2"></i>Order Placed Successfully!</h5>
+        </div>
+        <div class="modal-body p-4 p-md-5">
+          <div class="text-center mb-4">
+            <div class="text-success mb-2" style="font-size:3.5rem;"><i class="fa-solid fa-seedling"></i></div>
+            <h3 class="fw-bold">Thank You For Your Order!</h3>
+            <p class="text-muted">Your order <strong class="text-primary modal-order-id">FC-000000</strong> has been confirmed. A receipt and plant health tracking link have been dispatched to <strong class="modal-cust-email"></strong>.</p>
+          </div>
+
+          <!-- Printable Invoice Card -->
+          <div class="card p-4 border bg-surface-alt rounded-4 mb-4 printable-invoice">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+              <div>
+                <h5 class="fw-bold mb-0">FloraCraft Botanical Co.</h5>
+                <small class="text-muted">Invoice & Dispatch Receipt</small>
+              </div>
+              <div class="text-end">
+                <span class="badge bg-success">Status: Confirmed</span>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3 small">
+              <div class="col-6">
+                <strong>Billed To:</strong>
+                <div class="modal-cust-name"></div>
+              </div>
+              <div class="col-6 text-end">
+                <strong>Order Total:</strong>
+                <div class="fs-5 fw-bold text-primary modal-order-total"></div>
+              </div>
+            </div>
+
+            <div class="modal-order-items mb-3"></div>
+
+            <div class="small text-muted border-top pt-2">
+              <i class="fa-solid fa-shield-heart text-success me-1"></i> Covered by FloraCraft 30-Day Plant Health Guarantee.
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <button type="button" class="btn btn-outline-secondary modal-print-invoice-btn">
+              <i class="fa-solid fa-print me-1"></i> Print Receipt
+            </button>
+            <a href="products.html" class="btn btn-primary">
+              <i class="fa-solid fa-bag-shopping me-1"></i> Continue Shopping
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/currency.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/checkout.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* ==========================================================================
+   FLORACRAFT - RIGHT-TO-LEFT (RTL) STYLES
+   ========================================================================== */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] body {
+  font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif;
+}
+
+/* Header & Search */
+[dir="rtl"] .header-search-form input {
+  padding: 10px 18px 10px 42px;
+}
+
+[dir="rtl"] .header-search-form .search-submit {
+  right: auto;
+  left: 12px;
+}
+
+[dir="rtl"] .badge-count {
+  right: auto;
+  left: -4px;
+}
+
+[dir="rtl"] .top-bar-divider {
+  margin: 0 10px;
+}
+
+/* Product Cards */
+[dir="rtl"] .product-badge-group {
+  left: auto;
+  right: 12px;
+}
+
+[dir="rtl"] .product-rating .rating-count {
+  margin-left: 0;
+  margin-right: 4px;
+}
+
+[dir="rtl"] .custom-checkbox-label input {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+/* Hero elements */
+[dir="rtl"] .hero-card-1 {
+  left: auto;
+  right: -25px;
+}
+
+[dir="rtl"] .hero-card-2 {
+  right: auto;
+  left: -20px;
+}
+
+/* Cart Drawer */
+[dir="rtl"] .cart-drawer {
+  right: auto;
+  left: -420px;
+  transition: left var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[dir="rtl"] .cart-drawer.open {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .cart-item-remove {
+  right: auto;
+  left: 0;
+}
+
+/* Toast */
+[dir="rtl"] .toast-container {
+  right: auto;
+  left: 24px;
+}
+
+[dir="rtl"] .custom-toast {
+  border-left: 1px solid var(--border-color);
+  border-right: 5px solid var(--primary);
+  animation: toastSlideInRtl 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toastSlideInRtl {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+[dir="rtl"] .footer-links a:hover {
+  transform: translateX(-4px);
+}
+
+[dir="rtl"] .back-to-top {
+  right: auto;
+  left: 24px;
+}

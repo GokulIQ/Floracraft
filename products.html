@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Botanical Products - FloraCraft Flower Pots & Gardening</title>
+  <meta name="description" content="Browse our complete catalog of potted indoor plants, terracotta flower pots, organic soil blends, and high-precision gardening tools.">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="/" class="brand-logo">
+          <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+          <span>Flora<span style="color:var(--accent);">Craft</span></span>
+        </a>
+
+        <nav class="d-none d-lg-block">
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html"><i class="fa-solid fa-store me-2 text-primary"></i>Home 1 - Gardening Store</a></li>
+                <li><a class="dropdown-item" href="home-2.html"><i class="fa-solid fa-tree me-2 text-success"></i>Home 2 - Nursery & Landscaping</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="products.html">Shop</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Studios</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="customizer.html"><i class="fa-solid fa-wand-magic-sparkles me-2 text-accent"></i>Pot & Plant Pairer Studio</a></li>
+                <li><a class="dropdown-item" href="plant-calendar.html"><i class="fa-solid fa-calendar-check me-2 text-success"></i>Care & Watering Calendar</a></li>
+                <li><a class="dropdown-item" href="ar-visualizer.html"><i class="fa-solid fa-cube me-2 text-primary"></i>AR Room Visualizer</a></li>
+                <li><a class="dropdown-item" href="pot-calculator.html"><i class="fa-solid fa-calculator me-2 text-secondary"></i>Soil & Fertilizer Calculator</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="plant-care.html">Guides</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bulk-orders.html">B2B</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                <li><a class="dropdown-item" href="pricing.html">Maintenance Plans</a></li>
+                <li><a class="dropdown-item" href="wishlist.html">My Wishlist</a></li>
+                <li><a class="dropdown-item" href="compare.html">Product Compare</a></li>
+                <li><a class="dropdown-item" href="contact.html">Contact & FAQs</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="404.html">404 Error Page</a></li>
+                <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Search Bar -->
+        <form class="header-search-form d-none d-xl-block" action="products.html" method="GET">
+          <input type="text" name="search" placeholder="Search plants, terracotta pots...">
+          <button type="submit" class="search-submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-btn rtl-toggle-btn" title="Toggle Layout Direction">
+            <i class="fa-solid fa-globe"></i>
+          </button>
+          <button class="icon-btn theme-toggle-btn" title="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <button type="button" class="icon-btn cart-drawer-trigger" title="Shopping Cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-count cart-count-badge" style="display:none;">0</span>
+          </button>
+          <div class="auth-nav-container ms-1">
+            <a href="login.html" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+          </div>
+          <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Menu -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header">
+      <div class="brand-logo">
+        <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+        <span>Flora<span style="color:var(--accent);">Craft</span></span>
+      </div>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="mobile-menu-list">
+        <li class="mobile-menu-item"><a href="index.html" class="mobile-menu-link">Home 1 (Store)</a></li>
+        <li class="mobile-menu-item"><a href="home-2.html" class="mobile-menu-link">Home 2 (Landscaping)</a></li>
+        <li class="mobile-menu-item"><a href="products.html" class="mobile-menu-link text-primary fw-bold">Shop Catalog</a></li>
+        <li class="mobile-menu-item"><a href="customizer.html" class="mobile-menu-link"><i class="fa-solid fa-wand-magic-sparkles me-2 text-accent"></i>Pairer Studio</a></li>
+        <li class="mobile-menu-item"><a href="plant-calendar.html" class="mobile-menu-link"><i class="fa-solid fa-calendar-check me-2 text-success"></i>Care Calendar</a></li>
+        <li class="mobile-menu-item"><a href="plant-care.html" class="mobile-menu-link">Plant Care Guides</a></li>
+        <li class="mobile-menu-item"><a href="bulk-orders.html" class="mobile-menu-link">B2B Wholesale</a></li>
+        <li class="mobile-menu-item"><a href="about.html" class="mobile-menu-link">About Us</a></li>
+        <li class="mobile-menu-item"><a href="contact.html" class="mobile-menu-link">Contact</a></li>
+        <li class="mobile-menu-item"><a href="profile.html" class="mobile-menu-link">My Account</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs & Page Header -->
+  <div class="bg-surface-alt py-4 border-bottom">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-1 small">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Botanical Shop</li>
+        </ol>
+      </nav>
+      <h1 class="h2 fw-bold mb-0">Explore Our Plant & Pot Collection</h1>
+    </div>
+  </div>
+
+  <!-- Main Shop Body with Filter Sidebar -->
+  <div class="container py-5">
+    
+    <!-- Category Quick Pills Bar -->
+    <div class="category-pills-bar">
+      <button class="category-pill-btn active" data-pill-cat="all">
+        <i class="fa-solid fa-border-all"></i> All Products <span class="pill-count">20</span>
+      </button>
+      <button class="category-pill-btn" data-pill-cat="indoor-plants">
+        <i class="fa-solid fa-seedling text-success"></i> Indoor Plants <span class="pill-count">5</span>
+      </button>
+      <button class="category-pill-btn" data-pill-cat="outdoor-plants">
+        <i class="fa-solid fa-tree text-primary"></i> Outdoor Plants <span class="pill-count">3</span>
+      </button>
+      <button class="category-pill-btn" data-pill-cat="flower-pots">
+        <i class="fa-solid fa-shapes text-accent"></i> Flower Pots <span class="pill-count">3</span>
+      </button>
+      <button class="category-pill-btn" data-pill-cat="seeds">
+        <i class="fa-solid fa-wheat-awn text-success"></i> Seeds <span class="pill-count">2</span>
+      </button>
+      <button class="category-pill-btn" data-pill-cat="soil-fertilizers">
+        <i class="fa-solid fa-layer-group text-warning"></i> Soil & Fertilizers <span class="pill-count">3</span>
+      </button>
+      <button class="category-pill-btn" data-pill-cat="gardening-tools">
+        <i class="fa-solid fa-scissors text-secondary"></i> Gardening Tools <span class="pill-count">3</span>
+      </button>
+      <button class="category-pill-btn" data-pill-cat="plant-accessories">
+        <i class="fa-solid fa-wand-magic-sparkles text-primary"></i> Plant Accessories <span class="pill-count">1</span>
+      </button>
+    </div>
+
+    <!-- Active Filter Tags Row -->
+    <div id="activeFilterChips" class="active-filters-bar" style="display:none;"></div>
+
+    <div class="row">
+      
+      <!-- Filter Sidebar Column -->
+      <aside class="col-lg-3">
+        
+        <!-- Search Filter -->
+        <div class="filter-card">
+          <div class="filter-title">Search Catalog</div>
+          <div class="position-relative">
+            <input type="text" id="catalogSearchInput" class="form-control rounded-pill pe-4" placeholder="Search plants, pots, seeds...">
+            <button type="button" id="clearSearchInputBtn" class="btn btn-sm btn-link position-absolute end-0 top-50 translate-middle-y text-muted text-decoration-none" style="display:none;" title="Clear search">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Categories Filter -->
+        <div class="filter-card">
+          <div class="filter-title">Categories</div>
+          <div class="d-flex flex-column gap-1">
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="categoryFilter" value="indoor-plants"> Indoor Plants</span>
+              <span class="badge bg-surface-alt text-muted" id="count-indoor-plants">5</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="categoryFilter" value="outdoor-plants"> Outdoor Plants</span>
+              <span class="badge bg-surface-alt text-muted" id="count-outdoor-plants">3</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="categoryFilter" value="flower-pots"> Flower Pots</span>
+              <span class="badge bg-surface-alt text-muted" id="count-flower-pots">3</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="categoryFilter" value="seeds"> Seeds</span>
+              <span class="badge bg-surface-alt text-muted" id="count-seeds">2</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="categoryFilter" value="soil-fertilizers"> Soil & Fertilizers</span>
+              <span class="badge bg-surface-alt text-muted" id="count-soil-fertilizers">3</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="categoryFilter" value="gardening-tools"> Gardening Tools</span>
+              <span class="badge bg-surface-alt text-muted" id="count-gardening-tools">3</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="categoryFilter" value="plant-accessories"> Plant Accessories</span>
+              <span class="badge bg-surface-alt text-muted" id="count-plant-accessories">1</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Price Range Filter -->
+        <div class="filter-card">
+          <div class="filter-title">
+            <span>Price Range</span>
+            <span id="priceRangeValue" class="text-primary fw-bold">$120</span>
+          </div>
+          <div class="price-range-wrapper">
+            <input type="range" class="form-range range-slider" id="priceRangeSlider" min="10" max="120" step="5" value="120">
+            <div class="d-flex justify-content-between text-muted small mt-1">
+              <span>$10</span>
+              <span>$120</span>
+            </div>
+            <div class="row g-2 mt-2">
+              <div class="col-6">
+                <div class="input-group input-group-sm">
+                  <span class="input-group-text">$</span>
+                  <input type="number" id="minPriceInput" class="form-control" placeholder="Min" min="0" max="120" value="0">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="input-group input-group-sm">
+                  <span class="input-group-text">$</span>
+                  <input type="number" id="maxPriceInput" class="form-control" placeholder="Max" min="10" max="120" value="120">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Rating Filter -->
+        <div class="filter-card">
+          <div class="filter-title">Customer Rating</div>
+          <div class="d-flex flex-column gap-1">
+            <label class="custom-checkbox-label">
+              <span><input type="radio" name="ratingFilter" value="0" checked> Any Rating</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="radio" name="ratingFilter" value="4.8"> 4.8★ & Above</span>
+              <span class="text-warning small"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="radio" name="ratingFilter" value="4.5"> 4.5★ & Above</span>
+              <span class="text-warning small"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="radio" name="ratingFilter" value="4.0"> 4.0★ & Above</span>
+              <span class="text-warning small"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Availability & Deals -->
+        <div class="filter-card">
+          <div class="filter-title">Availability & Offers</div>
+          <div class="d-flex flex-column gap-1">
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" id="inStockOnlyCheckbox" name="inStockFilter"> In Stock Only</span>
+              <i class="fa-solid fa-check text-success"></i>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" id="onSaleOnlyCheckbox" name="onSaleFilter"> On Sale / Discounted</span>
+              <span class="badge bg-danger-subtle text-danger font-monospace small">SALE</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Special Attributes Filter -->
+        <div class="filter-card">
+          <div class="filter-title">Botanical Features</div>
+          <div class="d-flex flex-column gap-1">
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" id="petFriendlyCheckbox" name="petFilter"> Pet Safe (Non-Toxic)</span>
+              <i class="fa-solid fa-paw text-warning"></i>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" id="airPurifyingCheckbox" name="airFilter"> Air Purifying</span>
+              <i class="fa-solid fa-wind text-primary"></i>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" id="lowLightCheckbox" name="lightFilter"> Low Light Tolerant</span>
+              <i class="fa-regular fa-moon text-secondary"></i>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" id="beginnerCheckbox" name="difficultyFilter"> Beginner Friendly</span>
+              <i class="fa-solid fa-seedling text-success"></i>
+            </label>
+          </div>
+          
+          <button id="resetFiltersBtn" class="btn btn-outline-secondary btn-sm w-100 mt-3">
+            <i class="fa-solid fa-arrow-rotate-left me-1"></i> Clear All Filters
+          </button>
+        </div>
+
+      </aside>
+
+      <!-- Products Grid & Header Controls -->
+      <main class="col-lg-9 mt-4 mt-lg-0">
+        
+        <!-- Controls Bar -->
+        <div class="card p-3 border-0 bg-surface shadow-sm rounded-3 mb-4">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <div class="d-flex align-items-center gap-3">
+              <!-- Mobile Filter Trigger -->
+              <button class="btn btn-outline-primary btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#shopFilterOffcanvas">
+                <i class="fa-solid fa-sliders me-1"></i> Filters
+              </button>
+              <div class="text-muted small fw-semibold" id="catalogResultsCount">
+                Loading botanical catalog...
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3 ms-auto">
+              <!-- Items Per Page -->
+              <div class="d-flex align-items-center gap-2 d-none d-md-flex">
+                <label for="catalogPerPageSelect" class="small text-muted fw-bold">Show:</label>
+                <select id="catalogPerPageSelect" class="form-select form-select-sm rounded-pill" style="width: 80px;">
+                  <option value="8" selected>8</option>
+                  <option value="12">12</option>
+                  <option value="all">All 20</option>
+                </select>
+              </div>
+
+              <!-- Sorting -->
+              <div class="d-flex align-items-center gap-2">
+                <label for="catalogSortSelect" class="small text-muted fw-bold d-none d-sm-inline">Sort:</label>
+                <select id="catalogSortSelect" class="form-select form-select-sm rounded-pill" style="min-width: 175px;">
+                  <option value="featured">Featured / Recommended</option>
+                  <option value="newest">Newest Arrivals</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="rating">Highest Rated</option>
+                  <option value="popular">Most Popular</option>
+                </select>
+              </div>
+
+              <!-- View Switcher -->
+              <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-outline-secondary active" id="viewGridBtn" title="Grid View">
+                  <i class="fa-solid fa-grip"></i>
+                </button>
+                <button type="button" class="btn btn-outline-secondary" id="viewListBtn" title="List View">
+                  <i class="fa-solid fa-list"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Container (Rendered dynamically by products.js) -->
+        <div class="row" id="catalogProductsContainer"></div>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-5 text-center d-flex justify-content-center">
+          <ul class="pagination justify-content-center" id="catalogPagination"></ul>
+        </nav>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping text-primary me-2"></i>Your Botanical Basket</h5>
+      <button type="button" class="btn-close" id="closeCartDrawerBtn" aria-label="Close"></button>
+    </div>
+    <div class="cart-drawer-body" id="cartDrawerItems"></div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="free-shipping-bar">
+        <div class="small fw-semibold" id="freeShippingText">Add $75.00 for FREE Shipping</div>
+        <div class="progress"><div class="progress-bar-fill" id="freeShippingProgress" style="width: 0%;"></div></div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="fw-bold">Estimated Subtotal:</span>
+        <span class="fw-bold fs-5 text-primary" id="cartDrawerSubtotal">$0.00</span>
+      </div>
+      <div class="d-grid gap-2">
+        <a href="cart.html" class="btn btn-outline-primary">View Shopping Bag</a>
+        <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.closeModal && window.closeModal(this)"></button>
+        </div>
+        <div class="modal-body p-4 pt-0">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+              <div class="product-gallery-main">
+                <img src="" alt="" class="qv-main-img img-fluid">
+              </div>
+              <div class="gallery-thumbs qv-thumbs"></div>
+            </div>
+            <div class="col-md-6">
+              <span class="product-category qv-category text-primary fw-bold small text-uppercase"></span>
+              <h3 class="qv-title font-heading fw-bold mb-2"></h3>
+              <div class="qv-price mb-3"></div>
+              <p class="qv-desc text-muted small mb-4"></p>
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="cart-qty-stepper">
+                  <button class="qty-btn" onclick="let input = document.querySelector('.qv-qty-input'); input.value = Math.max(1, parseInt(input.value)-1);"><i class="fa-solid fa-minus"></i></button>
+                  <input type="number" class="qty-val qv-qty-input border-0 bg-transparent" value="1" min="1" style="width:36px; text-align:center;">
+                  <button class="qty-btn" onclick="let input = document.querySelector('.qv-qty-input'); input.value = parseInt(input.value)+1;"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <button type="button" class="btn btn-primary qv-add-btn flex-grow-1">
+                  <i class="fa-solid fa-plus me-1"></i> Add to Basket
+                </button>
+              </div>
+              <a href="#" class="qv-details-link small text-primary fw-bold text-decoration-underline">View Full Specifications & Care Specs <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav">
+    <ul class="mobile-nav-items">
+      <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+      <li><a href="products.html" class="mobile-nav-link active"><i class="fa-solid fa-shop"></i><span>Shop</span></a></li>
+      <li><a href="wishlist.html" class="mobile-nav-link"><i class="fa-regular fa-heart"></i><span class="mobile-nav-badge wishlist-count-badge" style="display:none;">0</span><span>Wishlist</span></a></li>
+      <li><a href="javascript:void(0)" class="mobile-nav-link cart-drawer-trigger"><i class="fa-solid fa-bag-shopping"></i><span class="mobile-nav-badge cart-count-badge" style="display:none;">0</span><span>Cart</span></a></li>
+      <li><a href="login.html" class="mobile-nav-link"><i class="fa-regular fa-user"></i><span>Sign In</span></a></li>
+    </ul>
+  </nav>
+
+  <button type="button" class="back-to-top" id="backToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <!-- Top Feature / Trust Bar -->
+    <div class="footer-perks-bar border-bottom border-white-10 py-4 mb-5">
+      <div class="container">
+        <div class="row g-4 text-white">
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Free Nursery Shipping</div>
+              <div class="text-white-50 small">On all orders over $75</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <div>
+              <div class="fw-bold fs-6">30-Day Guarantee</div>
+              <div class="text-white-50 small">Healthy plant arrival promise</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <div class="fw-bold fs-6">100% Organic Grown</div>
+              <div class="text-white-50 small">Zero synthetic pesticides</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Botanist Support</div>
+              <div class="text-white-50 small">7 days a week plant care</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Brand & Contact Col -->
+        <div class="col-lg-4 col-md-6">
+          <a href="/" class="brand-logo mb-3">
+            <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+            <span>Flora<span style="color:var(--accent);">Craft</span></span>
+          </a>
+          <p class="text-white-50 mb-4 pe-lg-3">
+            Dedicated to bringing lush living greenery, artisanal pottery craftsmanship, and certified horticultural science into contemporary homes and workspaces.
+          </p>
+          <div class="footer-contact-info d-flex flex-column gap-2 text-white-50 small mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-location-dot text-primary-light"></i>
+              <span>742 Evergreen Botanical Way, Portland, OR 97201</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-phone text-primary-light"></i>
+              <span>+1 (800) 456-GROW (4769)</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-envelope text-primary-light"></i>
+              <span>care@floracraft-nursery.com</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-regular fa-clock text-primary-light"></i>
+              <span>Mon – Sun: 8:00 AM – 7:00 PM PST</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-link-btn" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-link-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-link-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Botanical Categories Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Botanical Shop</h5>
+          <ul class="footer-links">
+            <li><a href="products.html?category=indoor-plants"><i class="fa-solid fa-seedling text-success small"></i> Indoor Foliage</a></li>
+            <li><a href="products.html?category=outdoor-plants"><i class="fa-solid fa-tree text-primary-light small"></i> Outdoor Plants</a></li>
+            <li><a href="products.html?category=flower-pots"><i class="fa-solid fa-shapes text-warning small"></i> Terracotta & Pots</a></li>
+            <li><a href="products.html?category=seeds"><i class="fa-solid fa-wheat-awn text-success small"></i> Seeds & Bulbs</a></li>
+            <li><a href="products.html?category=soil-fertilizers"><i class="fa-solid fa-layer-group text-warning small"></i> Bio Soils & Food</a></li>
+            <li><a href="products.html?category=gardening-tools"><i class="fa-solid fa-scissors text-info small"></i> Gardening Tools</a></li>
+            <li><a href="products.html?category=plant-accessories"><i class="fa-solid fa-wand-magic-sparkles text-primary-light small"></i> Plant Accessories</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio & Services Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Studio & Care</h5>
+          <ul class="footer-links">
+            <li><a href="customizer.html">Pot & Plant Studio</a></li>
+            <li><a href="plant-calendar.html">Watering Calendar</a></li>
+            <li><a href="plant-care.html">Botanist Care Guides</a></li>
+            <li><a href="bulk-orders.html">B2B Wholesale Hub</a></li>
+            <li><a href="about.html">Our Nursery Story</a></li>
+            <li><a href="contact.html">Store Locator & Visits</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Payment Col -->
+        <div class="col-lg-4 col-md-6">
+          <h5>Botanical Newsletter</h5>
+          <p class="text-white-50 small mb-3">
+            Subscribe for seasonal propagation guides, rare specimen drops, and member-only 20% nursery discounts.
+          </p>
+          <form class="newsletter-form footer-newsletter mb-4" onsubmit="event.preventDefault(); window.showToast && window.showToast('Subscribed!', 'Welcome to FloraCraft Botanical Circle. Enjoy 20% off your next order!', 'success'); this.reset();">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter your email address..." required>
+              <button class="btn btn-primary" type="submit">Join Circle</button>
+            </div>
+          </form>
+
+          
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <div class="text-white-50 small text-center text-md-start">
+          © 2026 FloraCraft Botanical Co. All rights reserved. Handcrafted with eco-friendly love.
+        </div>
+        <div class="d-flex flex-wrap gap-3 small text-white-50">
+          <a href="about.html" class="text-white-50 text-decoration-none">Privacy Policy</a>
+          <span>•</span>
+          <a href="about.html" class="text-white-50 text-decoration-none">Terms of Service</a>
+          <span>•</span>
+          <a href="plant-care.html" class="text-white-50 text-decoration-none">Shipping & Returns</a>
+          <span>•</span>
+          <a href="contact.html" class="text-white-50 text-decoration-none">Store Map</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Filter Offcanvas Drawer -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="shopFilterOffcanvas" aria-labelledby="shopFilterOffcanvasLabel">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title fw-bold" id="shopFilterOffcanvasLabel">
+        <i class="fa-solid fa-sliders text-primary me-2"></i>Filter Botanical Catalog
+      </h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="mobileFilterDrawerContent">
+        <!-- Search -->
+        <div class="mb-4">
+          <label class="fw-bold small mb-2">Search Keyword</label>
+          <input type="text" id="mobileSearchInput" class="form-control rounded-pill" placeholder="Search plants, pots, seeds...">
+        </div>
+
+        <!-- Categories -->
+        <div class="mb-4">
+          <label class="fw-bold small mb-2">Categories</label>
+          <div class="d-flex flex-column gap-1">
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="mobileCategoryFilter" value="indoor-plants"> Indoor Plants</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="mobileCategoryFilter" value="outdoor-plants"> Outdoor Plants</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="mobileCategoryFilter" value="flower-pots"> Flower Pots</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="mobileCategoryFilter" value="seeds"> Seeds</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="mobileCategoryFilter" value="soil-fertilizers"> Soil & Fertilizers</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="mobileCategoryFilter" value="gardening-tools"> Gardening Tools</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" name="mobileCategoryFilter" value="plant-accessories"> Plant Accessories</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-2">
+            <label class="fw-bold small mb-0">Max Price</label>
+            <span id="mobilePriceDisplay" class="fw-bold text-primary">$120</span>
+          </div>
+          <input type="range" class="form-range" id="mobilePriceSlider" min="10" max="120" step="5" value="120">
+        </div>
+
+        <!-- Availability -->
+        <div class="mb-4">
+          <label class="fw-bold small mb-2">Offers & Stock</label>
+          <div class="d-flex flex-column gap-1">
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" id="mobileInStockCheckbox"> In Stock Only</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" id="mobileOnSaleCheckbox"> On Sale Only</span>
+            </label>
+            <label class="custom-checkbox-label">
+              <span><input type="checkbox" id="mobilePetCheckbox"> Pet Safe Only</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="d-grid gap-2 pt-2">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="offcanvas">Apply Filters</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" onclick="document.getElementById('resetFiltersBtn').click()" data-bs-dismiss="offcanvas">Reset All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/currency.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/search-overlay.js"></script>
+  <script src="assets/js/recent-views.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

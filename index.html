@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloraCraft - Modern Flower Pots, Plants & Gardening Supplies Store</title>
+  <meta name="description" content="Discover premium indoor plants, handcrafted terracotta flower pots, organic soils, and precision gardening tools at FloraCraft. 30-Day Plant Health Guarantee.">
+  <meta name="keywords" content="plants, gardening, flower pots, terracotta planters, indoor plants, soil, gardening tools, seeds">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <style>
+    /* Shoppable Lookbook Hotspot Styling */
+    .lookbook-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .lookbook-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .lookbook-card:hover .lookbook-img {
+      transform: scale(1.04);
+    }
+    .hotspot-dot {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      cursor: pointer;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(0, 0, 0, 0.3);
+      animation: pulseHotspot 2s infinite;
+      z-index: 10;
+      transition: transform var(--transition-fast);
+    }
+    .hotspot-dot:hover {
+      transform: scale(1.3);
+    }
+    @keyframes pulseHotspot {
+      0% { box-shadow: 0 0 0 0 rgba(45, 106, 79, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(45, 106, 79, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(45, 106, 79, 0); }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        
+        <!-- Logo -->
+        <a href="/" class="brand-logo">
+          <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+          <span>Flora<span style="color:var(--accent);">Craft</span></span>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="d-none d-lg-block">
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Home</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item active" href="index.html"><i class="fa-solid fa-store me-2 text-primary"></i>Home 1 - Gardening Store</a></li>
+                <li><a class="dropdown-item" href="home-2.html"><i class="fa-solid fa-tree me-2 text-success"></i>Home 2 - Nursery & Landscaping</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Shop</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Studios</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="customizer.html"><i class="fa-solid fa-wand-magic-sparkles me-2 text-accent"></i>Pot & Plant Pairer Studio</a></li>
+                <li><a class="dropdown-item" href="plant-calendar.html"><i class="fa-solid fa-calendar-check me-2 text-success"></i>Care & Watering Calendar</a></li>
+                <li><a class="dropdown-item" href="ar-visualizer.html"><i class="fa-solid fa-cube me-2 text-primary"></i>AR Room Visualizer</a></li>
+                <li><a class="dropdown-item" href="pot-calculator.html"><i class="fa-solid fa-calculator me-2 text-secondary"></i>Soil & Fertilizer Calculator</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="plant-care.html">Guides</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bulk-orders.html">B2B</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                <li><a class="dropdown-item" href="pricing.html">Maintenance Plans</a></li>
+                <li><a class="dropdown-item" href="wishlist.html">My Wishlist</a></li>
+                <li><a class="dropdown-item" href="compare.html">Product Compare</a></li>
+                <li><a class="dropdown-item" href="contact.html">Contact & FAQs</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="404.html">404 Error Page</a></li>
+                <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Search Bar -->
+        <form class="header-search-form d-none d-xl-block" action="products.html" method="GET">
+          <input type="text" name="search" placeholder="Search...">
+          <button type="submit" class="search-submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button class="icon-btn rtl-toggle-btn" title="Toggle Layout Direction">
+            <i class="fa-solid fa-globe"></i>
+          </button>
+          <button class="icon-btn theme-toggle-btn" title="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <button type="button" class="icon-btn cart-drawer-trigger" title="Shopping Cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-count cart-count-badge" style="display:none;">0</span>
+          </button>
+
+          <!-- Auth Nav Menu -->
+          <div class="auth-nav-container ms-1">
+            <a href="login.html" class="icon-btn" title="Sign In">
+              <i class="fa-regular fa-user"></i>
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Menu -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header">
+      <div class="brand-logo">
+        <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+        <span>Flora<span style="color:var(--accent);">Craft</span></span>
+      </div>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="mobile-menu-list">
+        <li class="mobile-menu-item"><a href="index.html" class="mobile-menu-link">Home 1 (Gardening Store)</a></li>
+        <li class="mobile-menu-item"><a href="home-2.html" class="mobile-menu-link">Home 2 (Landscaping & Nursery)</a></li>
+        <li class="mobile-menu-item"><a href="customizer.html" class="mobile-menu-link text-accent fw-bold"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Pot & Plant Pairer Studio</a></li>
+        <li class="mobile-menu-item"><a href="plant-calendar.html" class="mobile-menu-link text-success fw-bold"><i class="fa-solid fa-calendar-check me-2"></i>Care & Watering Calendar</a></li>
+        <li class="mobile-menu-item"><a href="products.html" class="mobile-menu-link">All Products</a></li>
+        <li class="mobile-menu-item"><a href="plant-care.html" class="mobile-menu-link">Plant Care Guides</a></li>
+        <li class="mobile-menu-item"><a href="bulk-orders.html" class="mobile-menu-link">B2B & Bulk Orders</a></li>
+        <li class="mobile-menu-item"><a href="about.html" class="mobile-menu-link">About FloraCraft</a></li>
+        <li class="mobile-menu-item"><a href="wishlist.html" class="mobile-menu-link"><i class="fa-regular fa-heart me-2 text-danger"></i>My Wishlist</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 hero-content text-start">
+          <div class="hero-subtitle">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> 100% Organic & Nursery Fresh
+          </div>
+          <h1 class="hero-title">
+            Bring Nature Home With <span class="highlight">Bespoke Botanicals</span> & Handmade Pots.
+          </h1>
+          <p class="lead mb-4 text-muted">
+            Transform your living sanctuary with sustainable potted houseplants, artisanal Italian terracotta pottery, and bioactive organic soil blends delivered straight to your door.
+          </p>
+          <div class="d-flex flex-wrap gap-3 hero-btn-group">
+            <a href="products.html" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-bag-shopping"></i> Explore Shop Catalog
+            </a>
+            <a href="customizer.html" class="btn btn-outline-primary btn-lg">
+              <i class="fa-solid fa-shapes"></i> Customizer Studio
+            </a>
+            <a href="ar-visualizer.html" class="btn btn-outline-secondary btn-lg">
+              <i class="fa-solid fa-cube"></i> AR Room Visualizer
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="d-flex align-items-center gap-4 mt-5 pt-3 border-top border-light">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-shield-heart text-primary fs-4"></i>
+              <div>
+                <div class="fw-bold small">30-Day Guarantee</div>
+                <div class="text-muted" style="font-size:0.75rem;">Healthy plant arrival</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-truck-fast text-accent fs-4"></i>
+              <div>
+                <div class="fw-bold small">Free Shipping</div>
+                <div class="text-muted" style="font-size:0.75rem;">Orders over $75</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 hero-img-wrapper">
+          <img src="assets/images/hero-botanical-sanctuary.jpg" alt="Lush Houseplants and Terracotta Pots in Botanical Sanctuary" class="hero-main-img">
+
+          <!-- Floating Interactive Card 1 -->
+          <div class="hero-floating-card hero-card-1">
+            <div class="floating-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <div class="fw-bold small">Air Purifying Stars</div>
+              <div class="text-muted" style="font-size:0.75rem;">Over 450+ Happy Homes</div>
+            </div>
+          </div>
+
+          <!-- Floating Interactive Card 2 -->
+          <div class="hero-floating-card hero-card-2">
+            <div class="floating-icon" style="background:var(--accent-soft); color:var(--accent);"><i class="fa-solid fa-star"></i></div>
+            <div>
+              <div class="fw-bold small">4.9 / 5 Rating</div>
+              <div class="text-muted" style="font-size:0.75rem;">From 2,800+ Botanists</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Studio Callout Banners -->
+  <section class="py-4 bg-surface-alt border-bottom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <a href="customizer.html" class="card p-4 border-0 bg-surface shadow-sm rounded-4 h-100 text-decoration-none text-main d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-accent text-white mb-2">New Feature</span>
+              <h5 class="fw-bold mb-1"><i class="fa-solid fa-wand-magic-sparkles text-accent me-2"></i>Pot & Plant Pairer Studio</h5>
+              <p class="small text-muted mb-3">Visually combine houseplants with glazed ceramic & terracotta pots and save 15% on bundles.</p>
+            </div>
+            <span class="small text-accent fw-bold">Open Studio <i class="fa-solid fa-arrow-right ms-1"></i></span>
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="ar-visualizer.html" class="card p-4 border-0 bg-surface shadow-sm rounded-4 h-100 text-decoration-none text-main d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-primary text-white mb-2">Interactive 3D</span>
+              <h5 class="fw-bold mb-1"><i class="fa-solid fa-cube text-primary me-2"></i>AR Room Visualizer</h5>
+              <p class="small text-muted mb-3">Preview lifelike houseplants directly inside your living room or balcony before placing an order.</p>
+            </div>
+            <span class="small text-primary fw-bold">Launch Visualizer <i class="fa-solid fa-arrow-right ms-1"></i></span>
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="plant-calendar.html" class="card p-4 border-0 bg-surface shadow-sm rounded-4 h-100 text-decoration-none text-main d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-success text-white mb-2">Routine Planner</span>
+              <h5 class="fw-bold mb-1"><i class="fa-solid fa-calendar-check text-success me-2"></i>Watering & Care Calendar</h5>
+              <p class="small text-muted mb-3">Check off daily hydration tasks, track monthly fertilizing, and receive seasonal repotting reminders.</p>
+            </div>
+            <span class="small text-success fw-bold">View Schedule <i class="fa-solid fa-arrow-right ms-1"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop by Category Grid -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="d-flex flex-wrap align-items-end justify-content-between mb-4">
+        <div>
+          <span class="badge-botanical badge-new mb-2">Collections</span>
+          <h2 class="mb-0">Shop by Botanical Category</h2>
+        </div>
+        <a href="products.html" class="btn btn-outline-primary btn-sm">View All Categories <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+
+      <div class="row row-cols-2 row-cols-md-4 row-cols-lg-7 g-3 g-xl-4 justify-content-center">
+        <div class="col">
+          <a href="products.html?category=indoor-plants" class="category-card h-100">
+            <div class="category-img-wrapper">
+              <img src="assets/images/Peace_Lily_Plant_2K_202608190648.jpeg" alt="Indoor Peace Lily Plant" loading="lazy">
+            </div>
+            <div class="category-title">Indoor Plants</div>
+            <div class="category-count">5 Varieties</div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="products.html?category=flower-pots" class="category-card h-100">
+            <div class="category-img-wrapper">
+              <img src="assets/images/Ceramic_Plant_Pot_2K_202608190655.jpeg" alt="Ceramic Flower Pot" loading="lazy">
+            </div>
+            <div class="category-title">Flower Pots</div>
+            <div class="category-count">3 Designs</div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="products.html?category=outdoor-plants" class="category-card h-100">
+            <div class="category-img-wrapper">
+              <img src="assets/images/Hibiscus_Plant_2K_202608181814.jpeg" alt="Outdoor Hibiscus Plant" loading="lazy">
+            </div>
+            <div class="category-title">Outdoor Plants</div>
+            <div class="category-count">3 Varieties</div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="products.html?category=soil-fertilizers" class="category-card h-100">
+            <div class="category-img-wrapper">
+              <img src="assets/images/Neem_Cake_Fertilizer_2K_202608190709.jpeg" alt="Neem Cake Fertilizer" loading="lazy">
+            </div>
+            <div class="category-title">Soil & Fertilizer</div>
+            <div class="category-count">3 Blends</div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="products.html?category=gardening-tools" class="category-card h-100">
+            <div class="category-img-wrapper">
+              <img src="assets/images/Pruning_Shears_2K_202608181826.jpeg" alt="Pruning Shears Garden Tool" loading="lazy">
+            </div>
+            <div class="category-title">Garden Tools</div>
+            <div class="category-count">3 Tools</div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="products.html?category=seeds" class="category-card h-100">
+            <div class="category-img-wrapper">
+              <img src="assets/images/Sunflower_Seeds_2K_202608181754.jpeg" alt="Sunflower Seeds" loading="lazy">
+            </div>
+            <div class="category-title">Seeds & Bulbs</div>
+            <div class="category-count">2 Varieties</div>
+          </a>
+        </div>
+        <div class="col">
+          <a href="products.html?category=plant-accessories" class="category-card h-100">
+            <div class="category-img-wrapper">
+              <img src="assets/images/Plant_Support_Stand_2K_202608181822.jpeg" alt="Plant Support Stand Accessory" loading="lazy">
+            </div>
+            <div class="category-title">Accessories</div>
+            <div class="category-count">1 Stand</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Best Sellers Grid -->
+  <section class="py-5 bg-surface">
+    <div class="container py-4">
+      <div class="text-center max-w-700 mx-auto mb-4">
+        <span class="badge-botanical badge-bestseller mb-2">Customer Favorites</span>
+        <h2>Best Selling Botanical Picks</h2>
+        <p class="text-muted">Hand-picked by our nursery horticulturists for their beauty and easy-care adaptability.</p>
+      </div>
+
+      <!-- Quick Filter Nav Pills -->
+      <div class="d-flex justify-content-center flex-wrap gap-2 mb-5" id="homeBestsellerTabs">
+        <button class="category-pill-btn active" data-home-cat="all"><i class="fa-solid fa-border-all"></i> All Favorites</button>
+        <button class="category-pill-btn" data-home-cat="indoor-plants"><i class="fa-solid fa-seedling text-success"></i> Indoor Foliage</button>
+        <button class="category-pill-btn" data-home-cat="flower-pots"><i class="fa-solid fa-shapes text-accent"></i> Terracotta Pots</button>
+        <button class="category-pill-btn" data-home-cat="soil-fertilizers"><i class="fa-solid fa-layer-group text-warning"></i> Soils & Nutrition</button>
+        <button class="category-pill-btn" data-home-cat="gardening-tools"><i class="fa-solid fa-scissors text-secondary"></i> Garden Tools</button>
+      </div>
+
+      <div class="row g-4" id="homeBestsellersContainer">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <div class="product-media">
+              <img src="assets/images/products/monstera-1.jpg" alt="Monstera Deliciosa">
+              <div class="product-badge-group">
+                <span class="badge-botanical badge-bestseller">Bestseller</span>
+              </div>
+              <div class="product-actions-bar">
+                <button class="action-btn-sm" title="Quick View" onclick="window.openQuickView('prod-4')"><i class="fa-regular fa-eye"></i></button>
+                <button class="action-btn-sm" data-wishlist-id="prod-4" title="Wishlist" onclick="window.toggleWishlist('prod-4')"><i class="fa-regular fa-heart"></i></button>
+                <button class="action-btn-sm" title="Compare" onclick="window.addToCompare('prod-4')"><i class="fa-solid fa-code-compare"></i></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Indoor Plants</span>
+              <h3 class="product-title"><a href="product-details.html?id=prod-4">Monstera Deliciosa</a></h3>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="rating-count">(210)</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="current-price">$38.00</span>
+                  <span class="old-price">$48.00</span>
+                </div>
+                <button class="btn-add-cart-quick" title="Add to Cart" onclick="window.addToCart('prod-4', 1)"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <div class="product-media">
+              <img src="assets/images/products/terracotta-pot-1.jpg" alt="Terracotta Garden Pot">
+              <div class="product-badge-group">
+                <span class="badge-botanical badge-organic">Handcrafted</span>
+              </div>
+              <div class="product-actions-bar">
+                <button class="action-btn-sm" title="Quick View" onclick="window.openQuickView('prod-10')"><i class="fa-regular fa-eye"></i></button>
+                <button class="action-btn-sm" data-wishlist-id="prod-10" title="Wishlist" onclick="window.toggleWishlist('prod-10')"><i class="fa-regular fa-heart"></i></button>
+                <button class="action-btn-sm" title="Compare" onclick="window.addToCompare('prod-10')"><i class="fa-solid fa-code-compare"></i></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Flower Pots</span>
+              <h3 class="product-title"><a href="product-details.html?id=prod-10">Terracotta Garden Pot</a></h3>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <span class="rating-count">(112)</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="current-price">$22.50</span>
+                  <span class="old-price">$28.00</span>
+                </div>
+                <button class="btn-add-cart-quick" title="Add to Cart" onclick="window.addToCart('prod-10', 1)"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <div class="product-media">
+              <img src="assets/images/products/snake-plant-1.jpg" alt="Snake Plant">
+              <div class="product-badge-group">
+                <span class="badge-botanical badge-organic">Air Purifier</span>
+              </div>
+              <div class="product-actions-bar">
+                <button class="action-btn-sm" title="Quick View" onclick="window.openQuickView('prod-2')"><i class="fa-regular fa-eye"></i></button>
+                <button class="action-btn-sm" data-wishlist-id="prod-2" title="Wishlist" onclick="window.toggleWishlist('prod-2')"><i class="fa-regular fa-heart"></i></button>
+                <button class="action-btn-sm" title="Compare" onclick="window.addToCompare('prod-2')"><i class="fa-solid fa-code-compare"></i></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Indoor Plants</span>
+              <h3 class="product-title"><a href="product-details.html?id=prod-2">Snake Plant</a></h3>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="rating-count">(160)</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="current-price">$26.00</span>
+                  <span class="old-price">$32.00</span>
+                </div>
+                <button class="btn-add-cart-quick" title="Add to Cart" onclick="window.addToCart('prod-2', 1)"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="product-card">
+            <div class="product-media">
+              <img src="assets/images/products/watering-can-1.jpg" alt="Garden Watering Can">
+              <div class="product-badge-group">
+                <span class="badge-botanical badge-sale">Sale -19%</span>
+              </div>
+              <div class="product-actions-bar">
+                <button class="action-btn-sm" title="Quick View" onclick="window.openQuickView('prod-19')"><i class="fa-regular fa-eye"></i></button>
+                <button class="action-btn-sm" data-wishlist-id="prod-19" title="Wishlist" onclick="window.toggleWishlist('prod-19')"><i class="fa-regular fa-heart"></i></button>
+                <button class="action-btn-sm" title="Compare" onclick="window.addToCompare('prod-19')"><i class="fa-solid fa-code-compare"></i></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Gardening Tools</span>
+              <h3 class="product-title"><a href="product-details.html?id=prod-19">Garden Watering Can</a></h3>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <span class="rating-count">(82)</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price">
+                  <span class="current-price">$34.00</span>
+                  <span class="old-price">$42.00</span>
+                </div>
+                <button class="btn-add-cart-quick" title="Add to Cart" onclick="window.addToCart('prod-19', 1)"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Community Shoppable Lookbook -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="d-flex flex-wrap align-items-end justify-content-between mb-4">
+        <div>
+          <span class="badge-botanical badge-new mb-2">#FloraCraftLiving</span>
+          <h2 class="mb-0">Shop The Real Sanctuary Lookbook</h2>
+        </div>
+        <p class="text-muted small mb-0">Click the interactive pulse pins on customer styling photos to shop tagged plants and pots.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="lookbook-card">
+            <img src="assets/images/lookbook-1.jpg" alt="Living Room Monstera Sanctuary" class="lookbook-img">
+            
+            <!-- Hotspot Dot 1 (Monstera) -->
+            <div class="hotspot-dot" style="top: 48%; left: 45%;" onclick="window.openQuickView('prod-4')" title="Shop Monstera Deliciosa">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <!-- Hotspot Dot 2 (Terracotta) -->
+            <div class="hotspot-dot" style="top: 76%; left: 50%;" onclick="window.openQuickView('prod-10')" title="Shop Terracotta Pot">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="lookbook-card">
+            <img src="assets/images/lookbook-2.jpg" alt="Nordic Shelf Plant Styling" class="lookbook-img">
+            
+            <!-- Hotspot Dot 1 (Snake Plant) -->
+            <div class="hotspot-dot" style="top: 32%; left: 52%;" onclick="window.openQuickView('prod-2')" title="Shop Snake Plant">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <!-- Hotspot Dot 2 (Ceramic Pot) -->
+            <div class="hotspot-dot" style="top: 55%; left: 52%;" onclick="window.openQuickView('prod-9')" title="Shop Ceramic Pot">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="lookbook-card">
+            <img src="assets/images/lookbook-3.jpg" alt="Botanical Corner Living Room" class="lookbook-img">
+            
+            <!-- Hotspot Dot 1 (Areca Palm) -->
+            <div class="hotspot-dot" style="top: 60%; left: 26%;" onclick="window.openQuickView('prod-5')" title="Shop Areca Palm">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <!-- Hotspot Dot 2 (Hanging Plant Pot) -->
+            <div class="hotspot-dot" style="top: 25%; left: 46%;" onclick="window.openQuickView('prod-11')" title="Shop Hanging Pot">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <!-- Hotspot Dot 3 (Watering Can) -->
+            <div class="hotspot-dot" style="top: 52%; left: 62%;" onclick="window.openQuickView('prod-19')" title="Shop Watering Can">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limited Time Offer Banner with Countdown -->
+  <section class="py-5">
+    <div class="container">
+      <div class="deal-banner">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill mb-3">Flash Seasonal Offer</span>
+            <h2 class="text-white mb-3" style="font-size: clamp(2rem, 3.5vw, 3rem);">Spring Urban Garden Bundle: 25% Off + Free Nordic Pot</h2>
+            <p class="text-white-50 mb-4 lead">
+              Upgrade your balcony or windowsill with our complete starter kit: 1 Fiddle Fig, 1 Monstera, 10L Bio-Active Mix, and 2 Glazed Stoneware Planters.
+            </p>
+            
+            <div class="deal-countdown">
+              <div class="countdown-box">
+                <span class="countdown-number" id="cdDays">02</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <div class="countdown-box">
+                <span class="countdown-number" id="cdHours">14</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <div class="countdown-box">
+                <span class="countdown-number" id="cdMins">45</span>
+                <span class="countdown-label">Mins</span>
+              </div>
+              <div class="countdown-box">
+                <span class="countdown-number" id="cdSecs">30</span>
+                <span class="countdown-label">Secs</span>
+              </div>
+            </div>
+
+            <a href="customizer.html" class="btn btn-accent btn-lg mt-2">
+              <i class="fa-solid fa-shapes"></i> Design Custom Pair Bundle
+            </a>
+          </div>
+
+          <div class="col-lg-5 text-center mt-4 mt-lg-0">
+            <img src="assets/images/products/areca-palm-1.jpg" alt="Garden Bundle" class="rounded-4 shadow-lg img-fluid" style="max-height:360px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup CTA -->
+  <section class="py-5 bg-surface-alt">
+    <div class="container py-4 text-center">
+      <div class="max-w-700 mx-auto">
+        <span class="badge-botanical badge-new mb-2">Join the FloraCraft Green Club</span>
+        <h2 class="mb-3">Get 15% Off Your First Plant & Pot Order</h2>
+        <p class="text-muted mb-4">Receive seasonal repotting reminders, secret seedling drops, and botanical guides straight to your inbox.</p>
+        
+        <form class="newsletter-form d-flex flex-column flex-sm-row gap-2 justify-content-center max-w-500 mx-auto">
+          <input type="email" class="form-control form-control-lg rounded-pill px-4" placeholder="Enter your email address..." required>
+          <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4">
+            <i class="fa-solid fa-paper-plane me-1"></i> Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping text-primary me-2"></i>Your Botanical Basket</h5>
+      <button type="button" class="btn-close" id="closeCartDrawerBtn" aria-label="Close"></button>
+    </div>
+    <div class="cart-drawer-body" id="cartDrawerItems"></div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="free-shipping-bar">
+        <div class="small fw-semibold" id="freeShippingText">Add $75.00 for FREE Shipping</div>
+        <div class="progress"><div class="progress-bar-fill" id="freeShippingProgress" style="width: 0%;"></div></div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="fw-bold">Estimated Subtotal:</span>
+        <span class="fw-bold fs-5 text-primary" id="cartDrawerSubtotal">$0.00</span>
+      </div>
+      <div class="d-grid gap-2">
+        <a href="cart.html" class="btn btn-outline-primary">View Shopping Bag</a>
+        <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.closeModal && window.closeModal(this)"></button>
+        </div>
+        <div class="modal-body p-4 pt-0">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+              <div class="product-gallery-main">
+                <img src="" alt="" class="qv-main-img img-fluid">
+              </div>
+              <div class="gallery-thumbs qv-thumbs"></div>
+            </div>
+            <div class="col-md-6">
+              <span class="product-category qv-category text-primary fw-bold small text-uppercase"></span>
+              <h3 class="qv-title font-heading fw-bold mb-2"></h3>
+              <div class="qv-price mb-3"></div>
+              <p class="qv-desc text-muted small mb-4"></p>
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="cart-qty-stepper">
+                  <button class="qty-btn" onclick="let input = document.querySelector('.qv-qty-input'); input.value = Math.max(1, parseInt(input.value)-1);"><i class="fa-solid fa-minus"></i></button>
+                  <input type="number" class="qty-val qv-qty-input border-0 bg-transparent" value="1" min="1" style="width:36px; text-align:center;">
+                  <button class="qty-btn" onclick="let input = document.querySelector('.qv-qty-input'); input.value = parseInt(input.value)+1;"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <button type="button" class="btn btn-primary qv-add-btn flex-grow-1"><i class="fa-solid fa-plus me-1"></i> Add to Basket</button>
+              </div>
+              <a href="#" class="qv-details-link small text-primary fw-bold text-decoration-underline">View Full Specifications & Care Specs <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav">
+    <ul class="mobile-nav-items">
+      <li><a href="index.html" class="mobile-nav-link active"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+      <li><a href="products.html" class="mobile-nav-link"><i class="fa-solid fa-shop"></i><span>Shop</span></a></li>
+      <li><a href="customizer.html" class="mobile-nav-link"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Studio</span></a></li>
+      <li><a href="javascript:void(0)" class="mobile-nav-link cart-drawer-trigger"><i class="fa-solid fa-bag-shopping"></i><span class="mobile-nav-badge cart-count-badge" style="display:none;">0</span><span>Cart</span></a></li>
+      <li><a href="login.html" class="mobile-nav-link"><i class="fa-regular fa-user"></i><span>Sign In</span></a></li>
+    </ul>
+  </nav>
+
+  <button type="button" class="back-to-top" id="backToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <!-- Top Feature / Trust Bar -->
+    <div class="footer-perks-bar border-bottom border-white-10 py-4 mb-5">
+      <div class="container">
+        <div class="row g-4 text-white">
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Free Nursery Shipping</div>
+              <div class="text-white-50 small">On all orders over $75</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <div>
+              <div class="fw-bold fs-6">30-Day Guarantee</div>
+              <div class="text-white-50 small">Healthy plant arrival promise</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <div class="fw-bold fs-6">100% Organic Grown</div>
+              <div class="text-white-50 small">Zero synthetic pesticides</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Botanist Support</div>
+              <div class="text-white-50 small">7 days a week plant care</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Brand & Contact Col -->
+        <div class="col-lg-4 col-md-6">
+          <a href="/" class="brand-logo mb-3">
+            <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+            <span>Flora<span style="color:var(--accent);">Craft</span></span>
+          </a>
+          <p class="text-white-50 mb-4 pe-lg-3">
+            Dedicated to bringing lush living greenery, artisanal pottery craftsmanship, and certified horticultural science into contemporary homes and workspaces.
+          </p>
+          <div class="footer-contact-info d-flex flex-column gap-2 text-white-50 small mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-location-dot text-primary-light"></i>
+              <span>742 Evergreen Botanical Way, Portland, OR 97201</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-phone text-primary-light"></i>
+              <span>+1 (800) 456-GROW (4769)</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-envelope text-primary-light"></i>
+              <span>care@floracraft-nursery.com</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-regular fa-clock text-primary-light"></i>
+              <span>Mon – Sun: 8:00 AM – 7:00 PM PST</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-link-btn" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-link-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-link-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Botanical Categories Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Botanical Shop</h5>
+          <ul class="footer-links">
+            <li><a href="products.html?category=indoor-plants"><i class="fa-solid fa-seedling text-success small"></i> Indoor Foliage</a></li>
+            <li><a href="products.html?category=outdoor-plants"><i class="fa-solid fa-tree text-primary-light small"></i> Outdoor Plants</a></li>
+            <li><a href="products.html?category=flower-pots"><i class="fa-solid fa-shapes text-warning small"></i> Terracotta & Pots</a></li>
+            <li><a href="products.html?category=seeds"><i class="fa-solid fa-wheat-awn text-success small"></i> Seeds & Bulbs</a></li>
+            <li><a href="products.html?category=soil-fertilizers"><i class="fa-solid fa-layer-group text-warning small"></i> Bio Soils & Food</a></li>
+            <li><a href="products.html?category=gardening-tools"><i class="fa-solid fa-scissors text-info small"></i> Gardening Tools</a></li>
+            <li><a href="products.html?category=plant-accessories"><i class="fa-solid fa-wand-magic-sparkles text-primary-light small"></i> Plant Accessories</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio & Services Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Studio & Care</h5>
+          <ul class="footer-links">
+            <li><a href="customizer.html">Pot & Plant Studio</a></li>
+            <li><a href="plant-calendar.html">Watering Calendar</a></li>
+            <li><a href="plant-care.html">Botanist Care Guides</a></li>
+            <li><a href="bulk-orders.html">B2B Wholesale Hub</a></li>
+            <li><a href="about.html">Our Nursery Story</a></li>
+            <li><a href="contact.html">Store Locator & Visits</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Payment Col -->
+        <div class="col-lg-4 col-md-6">
+          <h5>Botanical Newsletter</h5>
+          <p class="text-white-50 small mb-3">
+            Subscribe for seasonal propagation guides, rare specimen drops, and member-only 20% nursery discounts.
+          </p>
+          <form class="newsletter-form footer-newsletter mb-4" onsubmit="event.preventDefault(); window.showToast && window.showToast('Subscribed!', 'Welcome to FloraCraft Botanical Circle. Enjoy 20% off your next order!', 'success'); this.reset();">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter your email address..." required>
+              <button class="btn btn-primary" type="submit">Join Circle</button>
+            </div>
+          </form>
+
+          
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <div class="text-white-50 small text-center text-md-start">
+          © 2026 FloraCraft Botanical Co. All rights reserved. Handcrafted with eco-friendly love.
+        </div>
+        <div class="d-flex flex-wrap gap-3 small text-white-50">
+          <a href="about.html" class="text-white-50 text-decoration-none">Privacy Policy</a>
+          <span>•</span>
+          <a href="about.html" class="text-white-50 text-decoration-none">Terms of Service</a>
+          <span>•</span>
+          <a href="plant-care.html" class="text-white-50 text-decoration-none">Shipping & Returns</a>
+          <span>•</span>
+          <a href="contact.html" class="text-white-50 text-decoration-none">Store Map</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/currency.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/search-overlay.js"></script>
+  <script src="assets/js/recent-views.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Live Countdown Timer for Flash Sale -->
+  <script>
+    (function() {
+      let seconds = 2 * 86400 + 14 * 3600 + 45 * 60;
+      setInterval(() => {
+        if (seconds > 0) seconds--;
+        const d = Math.floor(seconds / 86400);
+        const h = Math.floor((seconds % 86400) / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        const s = seconds % 60;
+        const dEl = document.getElementById('cdDays');
+        const hEl = document.getElementById('cdHours');
+        const mEl = document.getElementById('cdMins');
+        const sEl = document.getElementById('cdSecs');
+        if (dEl) dEl.textContent = String(d).padStart(2, '0');
+        if (hEl) hEl.textContent = String(h).padStart(2, '0');
+        if (mEl) mEl.textContent = String(m).padStart(2, '0');
+        if (sEl) sEl.textContent = String(s).padStart(2, '0');
+      }, 1000);
+    })();
+  </script>
+</body>
+</html>

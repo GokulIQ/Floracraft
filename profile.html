@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting - FloraCraft</title>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    (function () {
+      const user = window.getCurrentUser();
+      if (user && (user.role === 'admin' || user.email === 'admin@floracraft.com')) {
+        window.location.replace("admin.html");
+      } else {
+        window.location.replace("index.html");
+      }
+    })();
+  </script>
+</head>
+<body style="font-family:sans-serif; text-align:center; padding-top:50px;">
+  <p>Redirecting to FloraCraft...</p>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - FloraCraft Botanical Store</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="/" class="brand-logo">
+          <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+          <span>Flora<span style="color:var(--accent);">Craft</span></span>
+        </a>
+
+        <nav class="d-none d-lg-block">
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html"><i class="fa-solid fa-store me-2 text-primary"></i>Home 1 - Gardening Store</a></li>
+                <li><a class="dropdown-item" href="home-2.html"><i class="fa-solid fa-tree me-2 text-success"></i>Home 2 - Nursery & Landscaping</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="products.html">Shop</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Studios</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="customizer.html"><i class="fa-solid fa-wand-magic-sparkles me-2 text-accent"></i>Pot & Plant Pairer Studio</a></li>
+                <li><a class="dropdown-item" href="plant-calendar.html"><i class="fa-solid fa-calendar-check me-2 text-success"></i>Care & Watering Calendar</a></li>
+                <li><a class="dropdown-item" href="ar-visualizer.html"><i class="fa-solid fa-cube me-2 text-primary"></i>AR Room Visualizer</a></li>
+                <li><a class="dropdown-item" href="pot-calculator.html"><i class="fa-solid fa-calculator me-2 text-secondary"></i>Soil & Fertilizer Calculator</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="plant-care.html">Guides</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bulk-orders.html">B2B</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                <li><a class="dropdown-item" href="pricing.html">Maintenance Plans</a></li>
+                <li><a class="dropdown-item" href="wishlist.html">My Wishlist</a></li>
+                <li><a class="dropdown-item" href="compare.html">Product Compare</a></li>
+                <li><a class="dropdown-item" href="contact.html">Contact & FAQs</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="404.html">404 Error Page</a></li>
+                <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Search Bar -->
+        <form class="header-search-form d-none d-xl-block" action="products.html" method="GET">
+          <input type="text" name="search" placeholder="Search plants, terracotta pots...">
+          <button type="submit" class="search-submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-btn rtl-toggle-btn" title="Toggle Layout Direction">
+            <i class="fa-solid fa-globe"></i>
+          </button>
+          <button class="icon-btn theme-toggle-btn" title="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <button type="button" class="icon-btn cart-drawer-trigger" title="Shopping Cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-count cart-count-badge" style="display:none;">0</span>
+          </button>
+          <div class="auth-nav-container ms-1">
+            <a href="login.html" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+          </div>
+          <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Menu -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header">
+      <div class="brand-logo">
+        <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+        <span>Flora<span style="color:var(--accent);">Craft</span></span>
+      </div>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="mobile-menu-list">
+        <li class="mobile-menu-item"><a href="index.html" class="mobile-menu-link">Home 1 (Store)</a></li>
+        <li class="mobile-menu-item"><a href="home-2.html" class="mobile-menu-link">Home 2 (Landscaping)</a></li>
+        <li class="mobile-menu-item"><a href="products.html" class="mobile-menu-link">Shop Catalog</a></li>
+        <li class="mobile-menu-item"><a href="plant-care.html" class="mobile-menu-link">Plant Care Guides</a></li>
+        <li class="mobile-menu-item"><a href="bulk-orders.html" class="mobile-menu-link">B2B Wholesale</a></li>
+        <li class="mobile-menu-item"><a href="about.html" class="mobile-menu-link">About Us</a></li>
+        <li class="mobile-menu-item"><a href="contact.html" class="mobile-menu-link">Contact</a></li>
+        <li class="mobile-menu-item"><a href="profile.html" class="mobile-menu-link">My Account</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="bg-surface-alt py-3 border-bottom">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 small">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="products.html">Catalog</a></li>
+          <li class="breadcrumb-item"><a href="products.html" id="pdpBreadcrumbCategory">Indoor Plants</a></li>
+          <li class="breadcrumb-item active" aria-current="page" id="pdpBreadcrumbTitle">Plant Details</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Product Section -->
+  <div class="container py-5">
+    <div class="row g-5">
+      
+      <!-- Gallery Column -->
+      <div class="col-lg-6">
+        <div class="product-gallery-main">
+          <img id="pdpMainImage" src="" alt="Product Gallery" class="img-fluid">
+        </div>
+        <div class="gallery-thumbs" id="pdpThumbsContainer"></div>
+      </div>
+
+      <!-- Information Column -->
+      <div class="col-lg-6">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <span class="small text-muted">SKU: <strong id="pdpSku" class="text-main"></strong></span>
+          <div id="pdpStockBadge"></div>
+        </div>
+
+        <h1 class="h2 font-heading fw-bold mb-2" id="pdpTitle"></h1>
+
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div id="pdpStars" class="text-warning"></div>
+          <a href="#reviewsTabSection" class="small text-muted text-decoration-underline" id="pdpRatingCount"></a>
+        </div>
+
+        <div class="mb-4" id="pdpPriceContainer"></div>
+
+        <p class="lead text-muted small mb-4" id="pdpShortDescription"></p>
+
+        <!-- Care Quick Specs Grid -->
+        <div class="care-specs-grid" id="pdpCareSpecsGrid"></div>
+
+        <!-- Pot Size / Variation Selector -->
+        <div class="my-4">
+          <label class="fw-bold small mb-2 d-block">Select Pot Diameter / Planter Fit:</label>
+          <div class="option-selector-group">
+            <button type="button" class="option-pill pot-size-pill active" data-size="Standard (8-inch)">8-Inch Tabletop</button>
+            <button type="button" class="option-pill pot-size-pill" data-size="Large (10-inch)">10-Inch Floor Stand</button>
+            <button type="button" class="option-pill pot-size-pill" data-size="Extra Large (12-inch)">12-Inch Specimen</button>
+          </div>
+        </div>
+
+        <!-- Quantity & Add to Cart Row -->
+        <div class="d-flex flex-wrap align-items-center gap-3 mb-4 pt-2">
+          <div class="cart-qty-stepper p-1">
+            <button class="qty-btn" onclick="let input=document.getElementById('pdpQuantityInput'); input.value=Math.max(1, parseInt(input.value)-1);"><i class="fa-solid fa-minus"></i></button>
+            <input type="number" id="pdpQuantityInput" class="qty-val border-0 bg-transparent" value="1" min="1" style="width:45px; text-align:center;">
+            <button class="qty-btn" onclick="let input=document.getElementById('pdpQuantityInput'); input.value=parseInt(input.value)+1;"><i class="fa-solid fa-plus"></i></button>
+          </div>
+
+          <button id="pdpAddToCartBtn" class="btn btn-primary btn-lg flex-grow-1">
+            <i class="fa-solid fa-cart-shopping me-2"></i> Add to Botanical Cart
+          </button>
+
+          <button id="pdpWishlistBtn" class="icon-btn" type="button" title="Add to Wishlist" aria-label="Add to Wishlist" aria-pressed="false" style="width:48px; height:48px;">
+            <i class="fa-regular fa-heart fs-5"></i>
+          </button>
+        </div>
+
+        <!-- Safe Checkout Perks -->
+        <div class="card p-3 border-0 bg-surface-alt rounded-3">
+          <div class="row g-2 small text-muted">
+            <div class="col-sm-6 d-flex align-items-center gap-2">
+              <i class="fa-solid fa-truck text-primary"></i> Free shipping on orders over $75
+            </div>
+            <div class="col-sm-6 d-flex align-items-center gap-2">
+              <i class="fa-solid fa-shield-heart text-success"></i> 30-Day Plant Health Guarantee
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Product Details Tabs -->
+    <div class="mt-5 pt-4" id="reviewsTabSection">
+      <ul class="nav nav-tabs border-bottom mb-4" id="pdpTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active fw-bold" id="desc-tab" data-bs-toggle="tab" data-bs-target="#descTabPane" type="button" role="tab">Full Description</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link fw-bold" id="care-tab" data-bs-toggle="tab" data-bs-target="#careTabPane" type="button" role="tab">Plant Care & Watering Guide</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link fw-bold" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviewsTabPane" type="button" role="tab">Customer Reviews</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="pdpTabContent">
+        
+        <!-- Tab 1: Description -->
+        <div class="tab-pane fade show active" id="descTabPane" role="tabpanel">
+          <div class="card p-4 border-0 bg-surface rounded-4 shadow-sm" id="tabLongDescription"></div>
+        </div>
+
+        <!-- Tab 2: Care Guide -->
+        <div class="tab-pane fade" id="careTabPane" role="tabpanel">
+          <div id="tabCareGuide"></div>
+        </div>
+
+        <!-- Tab 3: Reviews -->
+        <div class="tab-pane fade" id="reviewsTabPane" role="tabpanel">
+          <div class="row g-4">
+            
+            <div class="col-lg-7">
+              <h5 class="fw-bold mb-4">Customer Feedback</h5>
+              <div id="pdpReviewsList">
+                <div class="border-bottom pb-4 mb-4">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width:42px; height:42px;">
+                        M
+                      </div>
+                      <div>
+                        <h6 class="mb-0 fw-bold">Miriam Sterling <span class="badge bg-success-subtle text-success ms-2 small">Verified Buyer</span></h6>
+                        <small class="text-muted">3 days ago</small>
+                      </div>
+                    </div>
+                    <div class="text-warning">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+                  <p class="mb-0 text-muted">Arrived in incredible condition with damp root wrapping. It has already sprouted two brand new leaves near my bright living room window!</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review Submission Form -->
+            <div class="col-lg-5">
+              <div class="card p-4 border-0 bg-surface-alt rounded-4">
+                <h5 class="fw-bold mb-3">Add Your Review</h5>
+                <form id="pdpReviewForm">
+                  <div class="mb-3">
+                    <label class="form-label small fw-bold">Your Name</label>
+                    <input type="text" id="reviewAuthorInput" class="form-control" placeholder="e.g., Alex Johnson" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-bold">Your Rating</label>
+                    <select id="reviewRatingSelect" class="form-select">
+                      <option value="5">⭐⭐⭐⭐⭐ (5 - Exceptional)</option>
+                      <option value="4">⭐⭐⭐⭐ (4 - Great Quality)</option>
+                      <option value="3">⭐⭐⭐ (3 - Average)</option>
+                      <option value="2">⭐⭐ (2 - Below Expectations)</option>
+                      <option value="1">⭐ (1 - Needs Improvement)</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-bold">Your Botanical Experience</label>
+                    <textarea id="reviewTextInput" class="form-control" rows="3" placeholder="How did the plant arrive? How is it thriving?" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100">Submit Review</button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div class="mt-5 pt-5 border-top">
+      <h3 class="fw-bold mb-4">Pair With Complementary Botanicals & Pots</h3>
+      <div class="row" id="pdpRelatedContainer"></div>
+    </div>
+
+  </div>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h5 class="fw-bold mb-0"><i class="fa-solid fa-bag-shopping text-primary me-2"></i>Your Botanical Basket</h5>
+      <button type="button" class="btn-close" id="closeCartDrawerBtn" aria-label="Close"></button>
+    </div>
+    <div class="cart-drawer-body" id="cartDrawerItems"></div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="free-shipping-bar">
+        <div class="small fw-semibold" id="freeShippingText">Add $75.00 for FREE Shipping</div>
+        <div class="progress"><div class="progress-bar-fill" id="freeShippingProgress" style="width: 0%;"></div></div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="fw-bold">Estimated Subtotal:</span>
+        <span class="fw-bold fs-5 text-primary" id="cartDrawerSubtotal">$0.00</span>
+      </div>
+      <div class="d-grid gap-2">
+        <a href="cart.html" class="btn btn-outline-primary">View Shopping Bag</a>
+        <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.closeModal && window.closeModal(this)"></button>
+        </div>
+        <div class="modal-body p-4 pt-0">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+              <div class="product-gallery-main">
+                <img src="" alt="" class="qv-main-img img-fluid">
+              </div>
+              <div class="gallery-thumbs qv-thumbs"></div>
+            </div>
+            <div class="col-md-6">
+              <span class="product-category qv-category text-primary fw-bold small text-uppercase"></span>
+              <h3 class="qv-title font-heading fw-bold mb-2"></h3>
+              <div class="qv-price mb-3"></div>
+              <p class="qv-desc text-muted small mb-4"></p>
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="cart-qty-stepper">
+                  <button class="qty-btn" onclick="let input = document.querySelector('.qv-qty-input'); input.value = Math.max(1, parseInt(input.value)-1);"><i class="fa-solid fa-minus"></i></button>
+                  <input type="number" class="qty-val qv-qty-input border-0 bg-transparent" value="1" min="1" style="width:36px; text-align:center;">
+                  <button class="qty-btn" onclick="let input = document.querySelector('.qv-qty-input'); input.value = parseInt(input.value)+1;"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <button type="button" class="btn btn-primary qv-add-btn flex-grow-1"><i class="fa-solid fa-plus me-1"></i> Add to Basket</button>
+              </div>
+              <a href="#" class="qv-details-link small text-primary fw-bold text-decoration-underline">View Full Specifications & Care Specs <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav">
+    <ul class="mobile-nav-items">
+      <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+      <li><a href="products.html" class="mobile-nav-link active"><i class="fa-solid fa-shop"></i><span>Shop</span></a></li>
+      <li><a href="wishlist.html" class="mobile-nav-link"><i class="fa-regular fa-heart"></i><span class="mobile-nav-badge wishlist-count-badge" style="display:none;">0</span><span>Wishlist</span></a></li>
+      <li><a href="javascript:void(0)" class="mobile-nav-link cart-drawer-trigger"><i class="fa-solid fa-bag-shopping"></i><span class="mobile-nav-badge cart-count-badge" style="display:none;">0</span><span>Cart</span></a></li>
+      <li><a href="login.html" class="mobile-nav-link"><i class="fa-regular fa-user"></i><span>Sign In</span></a></li>
+    </ul>
+  </nav>
+
+  <button type="button" class="back-to-top" id="backToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <!-- Top Feature / Trust Bar -->
+    <div class="footer-perks-bar border-bottom border-white-10 py-4 mb-5">
+      <div class="container">
+        <div class="row g-4 text-white">
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Free Nursery Shipping</div>
+              <div class="text-white-50 small">On all orders over $75</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <div>
+              <div class="fw-bold fs-6">30-Day Guarantee</div>
+              <div class="text-white-50 small">Healthy plant arrival promise</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <div class="fw-bold fs-6">100% Organic Grown</div>
+              <div class="text-white-50 small">Zero synthetic pesticides</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 d-flex align-items-center gap-3">
+            <div class="footer-perk-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <div class="fw-bold fs-6">Botanist Support</div>
+              <div class="text-white-50 small">7 days a week plant care</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Brand & Contact Col -->
+        <div class="col-lg-4 col-md-6">
+          <a href="/" class="brand-logo mb-3">
+            <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+            <span>Flora<span style="color:var(--accent);">Craft</span></span>
+          </a>
+          <p class="text-white-50 mb-4 pe-lg-3">
+            Dedicated to bringing lush living greenery, artisanal pottery craftsmanship, and certified horticultural science into contemporary homes and workspaces.
+          </p>
+          <div class="footer-contact-info d-flex flex-column gap-2 text-white-50 small mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-location-dot text-primary-light"></i>
+              <span>742 Evergreen Botanical Way, Portland, OR 97201</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-phone text-primary-light"></i>
+              <span>+1 (800) 456-GROW (4769)</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-envelope text-primary-light"></i>
+              <span>care@floracraft-nursery.com</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-regular fa-clock text-primary-light"></i>
+              <span>Mon – Sun: 8:00 AM – 7:00 PM PST</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-link-btn" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-link-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-link-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Botanical Categories Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Botanical Shop</h5>
+          <ul class="footer-links">
+            <li><a href="products.html?category=indoor-plants"><i class="fa-solid fa-seedling text-success small"></i> Indoor Foliage</a></li>
+            <li><a href="products.html?category=outdoor-plants"><i class="fa-solid fa-tree text-primary-light small"></i> Outdoor Plants</a></li>
+            <li><a href="products.html?category=flower-pots"><i class="fa-solid fa-shapes text-warning small"></i> Terracotta & Pots</a></li>
+            <li><a href="products.html?category=seeds"><i class="fa-solid fa-wheat-awn text-success small"></i> Seeds & Bulbs</a></li>
+            <li><a href="products.html?category=soil-fertilizers"><i class="fa-solid fa-layer-group text-warning small"></i> Bio Soils & Food</a></li>
+            <li><a href="products.html?category=gardening-tools"><i class="fa-solid fa-scissors text-info small"></i> Gardening Tools</a></li>
+            <li><a href="products.html?category=plant-accessories"><i class="fa-solid fa-wand-magic-sparkles text-primary-light small"></i> Plant Accessories</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio & Services Col -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <h5>Studio & Care</h5>
+          <ul class="footer-links">
+            <li><a href="customizer.html">Pot & Plant Studio</a></li>
+            <li><a href="plant-calendar.html">Watering Calendar</a></li>
+            <li><a href="plant-care.html">Botanist Care Guides</a></li>
+            <li><a href="bulk-orders.html">B2B Wholesale Hub</a></li>
+            <li><a href="about.html">Our Nursery Story</a></li>
+            <li><a href="contact.html">Store Locator & Visits</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Payment Col -->
+        <div class="col-lg-4 col-md-6">
+          <h5>Botanical Newsletter</h5>
+          <p class="text-white-50 small mb-3">
+            Subscribe for seasonal propagation guides, rare specimen drops, and member-only 20% nursery discounts.
+          </p>
+          <form class="newsletter-form footer-newsletter mb-4" onsubmit="event.preventDefault(); window.showToast && window.showToast('Subscribed!', 'Welcome to FloraCraft Botanical Circle. Enjoy 20% off your next order!', 'success'); this.reset();">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter your email address..." required>
+              <button class="btn btn-primary" type="submit">Join Circle</button>
+            </div>
+          </form>
+
+          
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <div class="text-white-50 small text-center text-md-start">
+          © 2026 FloraCraft Botanical Co. All rights reserved. Handcrafted with eco-friendly love.
+        </div>
+        <div class="d-flex flex-wrap gap-3 small text-white-50">
+          <a href="about.html" class="text-white-50 text-decoration-none">Privacy Policy</a>
+          <span>•</span>
+          <a href="about.html" class="text-white-50 text-decoration-none">Terms of Service</a>
+          <span>•</span>
+          <a href="plant-care.html" class="text-white-50 text-decoration-none">Shipping & Returns</a>
+          <span>•</span>
+          <a href="contact.html" class="text-white-50 text-decoration-none">Store Map</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/currency.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/product-details.js"></script>
+  <script src="assets/js/search-overlay.js"></script>
+  <script src="assets/js/recent-views.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
