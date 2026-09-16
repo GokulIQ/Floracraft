@@ -106,12 +106,31 @@
 
 /* Breakpoint Overrides */
 @media (max-width: 991.98px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   .site-header .navbar-nav {
     display: none;
   }
   
   .header-search-form {
     display: none;
+  }
+
+  .brand-logo {
+    font-size: 1.45rem;
+  }
+
+  .brand-logo .brand-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .site-header .header-actions {
+    gap: 6px;
   }
 
   .mobile-bottom-nav {
@@ -123,12 +142,12 @@
   }
 
   .hero-section {
-    padding: 50px 0 70px;
+    padding: 40px 0 60px;
     text-align: center;
   }
 
   .hero-floating-card {
-    display: none; /* Keep mobile view clean */
+    display: none; /* Keep tablet/mobile view clean */
   }
 
   .hero-btn-group {
@@ -136,7 +155,7 @@
   }
 
   .hero-img-wrapper {
-    margin-top: 40px;
+    margin-top: 36px;
   }
 
   .deal-banner {
@@ -149,7 +168,15 @@
   }
 
   .cart-drawer {
-    max-width: 100%;
+    max-width: 380px;
+    width: 100%;
+  }
+
+  .sticky-sidebar {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin-bottom: 24px;
   }
 
   .product-card.list-view {
@@ -160,21 +187,128 @@
     width: 100%;
     height: 220px;
   }
+
+  .studio-preview-box {
+    min-height: 400px;
+    padding: 30px 16px;
+  }
+
+  .customizer-plant-img {
+    max-height: 240px;
+  }
+
+  .customizer-pot-img {
+    max-height: 150px;
+    margin-top: -50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 2rem 0;
+    min-height: 120px;
+  }
+
+  .category-pills-bar {
+    gap: 6px;
+  }
+
+  .category-pill-btn {
+    padding: 6px 14px;
+    font-size: 0.825rem;
+  }
+
+  .lookbook-card {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+  }
 }
 
 @media (max-width: 575.98px) {
-  .hero-title {
-    font-size: 2.1rem;
+  /* Mobile Header (Zero Overlap at 360px) */
+  .site-header .container {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
-  .btn-lg {
-    padding: 12px 24px;
+  .brand-logo {
+    font-size: 1.25rem;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .brand-logo .brand-icon {
+    width: 32px;
+    height: 32px;
     font-size: 0.95rem;
   }
 
+  .site-header .header-actions {
+    gap: 4px;
+  }
+
+  .icon-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.825rem;
+  }
+
+  .rtl-toggle-btn {
+    min-width: 34px;
+    padding: 0 6px;
+    font-size: 0.65rem;
+  }
+
+  .auth-nav-container {
+    margin-left: 0 !important;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 30px 0 45px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+    line-height: 1.22;
+  }
+
+  .hero-btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-btn-group .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 11px 18px;
+  }
+
+  .hero-img-wrapper {
+    margin-top: 24px;
+  }
+
+  .btn-lg {
+    padding: 11px 20px;
+    font-size: 0.9rem;
+  }
+
+  .cart-drawer {
+    max-width: 100%;
+    width: 100%;
+  }
+
   .toast-container {
-    right: 12px;
-    left: 12px;
+    right: 10px;
+    left: 10px;
     bottom: 80px;
   }
 
@@ -197,5 +331,107 @@
   
   .btn-add-cart-quick:hover {
     transform: none;
+  }
+
+  .studio-preview-box {
+    min-height: 340px;
+    padding: 24px 12px;
+  }
+
+  .customizer-plant-img {
+    max-height: 200px;
+  }
+
+  .customizer-pot-img {
+    max-height: 120px;
+    margin-top: -40px;
+  }
+
+  .deal-banner {
+    padding: 24px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .deal-countdown {
+    gap: 6px;
+  }
+
+  .countdown-box {
+    min-width: 54px;
+    padding: 6px 4px;
+  }
+
+  .countdown-box .count-num {
+    font-size: 1.25rem;
+  }
+
+  .countdown-box .count-label {
+    font-size: 0.65rem;
+  }
+
+  .category-pills-bar {
+    gap: 5px;
+  }
+
+  .category-pill-btn {
+    padding: 5px 11px;
+    font-size: 0.775rem;
+  }
+
+  .studio-callout-card {
+    padding: 18px !important;
+  }
+}
+
+/* 360px and Extra-Small Mobile Devices */
+@media (max-width: 380px) {
+  .site-header .container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .brand-logo {
+    font-size: 1.1rem;
+    gap: 4px;
+  }
+
+  .brand-logo .brand-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .site-header .header-actions {
+    gap: 3px;
+  }
+
+  .icon-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
+  }
+
+  .rtl-toggle-btn {
+    min-width: 30px;
+    padding: 0 4px;
+    font-size: 0.6rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .category-pill-btn {
+    padding: 4px 9px;
+    font-size: 0.725rem;
+  }
+
+  .countdown-box {
+    min-width: 48px;
+    padding: 5px 3px;
+  }
+
+  .countdown-box .count-num {
+    font-size: 1.1rem;
   }
 }

@@ -60,13 +60,15 @@
 /* Cart Drawer */
 [dir="rtl"] .cart-drawer {
   right: auto;
-  left: -420px;
-  transition: left var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1), visibility var(--transition-normal);
 }
 
 [dir="rtl"] .cart-drawer.open {
   left: 0;
   right: auto;
+  transform: translateX(0);
 }
 
 [dir="rtl"] .cart-item-remove {
