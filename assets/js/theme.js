@@ -46,9 +46,6 @@
     const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
     const newTheme = currentTheme === "dark" ? "light" : "dark";
     setTheme(newTheme);
-    if (window.showToast) {
-      window.showToast("Theme Updated", `Switched to ${newTheme.toUpperCase()} mode.`, "info");
-    }
   };
 
   // Bind click listeners after DOM is loaded

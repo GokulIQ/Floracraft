@@ -18,9 +18,19 @@
   <div class="container my-auto py-5">
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-5">
-        <div class="card p-4 p-md-5 border-0 bg-surface shadow-lg rounded-4">
-          <div class="text-center mb-4">
-            <a href="index.html" class="brand-logo auth-brand-logo justify-content-center mb-3">
+        <div class="card p-4 p-md-5 border-0 bg-surface shadow-lg rounded-4 position-relative">
+          <!-- Auth Controls: LTR/RTL & Dark/Light Mode Toggles -->
+          <div class="auth-card-actions">
+            <button type="button" class="icon-btn rtl-toggle-btn" title="Toggle Layout Direction" aria-label="Toggle Layout Direction">
+              <i class="fa-solid fa-globe"></i>
+            </button>
+            <button type="button" class="icon-btn theme-toggle-btn" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </div>
+
+          <div class="text-center mb-4 pt-2 pt-md-0">
+            <a href="index.html" class="brand-logo justify-content-center mb-3">
               <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
               <span>Flora<span style="color:var(--accent);">Craft</span></span>
             </a>
@@ -52,10 +62,10 @@
               <span class="position-absolute top-50 start-50 translate-middle px-3 text-muted small" style="background: var(--bg-surface);">OR</span>
             </div>
             <div class="d-flex flex-column gap-2 mb-2">
-              <button type="button" class="btn btn-outline-secondary w-100 text-main d-flex align-items-center justify-content-center" style="background-color: var(--bg-surface); border-color: var(--border-color);" onclick="socialLogin('google')">
+              <button type="button" class="btn btn-social w-100 d-flex align-items-center justify-content-center" onclick="socialLogin('google')">
                 <i class="fa-brands fa-google text-danger me-2"></i> Sign in with Google
               </button>
-              <button type="button" class="btn btn-outline-secondary w-100 text-main d-flex align-items-center justify-content-center" style="background-color: var(--bg-surface); border-color: var(--border-color);" onclick="socialLogin('apple')">
+              <button type="button" class="btn btn-social w-100 d-flex align-items-center justify-content-center" onclick="socialLogin('apple')">
                 <i class="fa-brands fa-apple fs-5 me-2" style="margin-bottom:2px;"></i> Sign in with Apple
               </button>
             </div>
@@ -90,9 +100,8 @@
       const pass = document.getElementById('loginPassword').value;
       const res = window.loginUser(email, pass);
 
-            if (res.success) {
-        window.showToast("Welcome Back!", `Welcome back, ${res.user.name}!`, "success");
-        setTimeout(() => window.location.href = "index.html", 500);
+      if (res.success) {
+        window.showToast("Login successful!", "", "success");
       } else {
         window.showToast("Login Failed", res.message, "danger");
       }
@@ -109,10 +118,9 @@
       }
       
       if (res.success) {
-        window.showToast(`${name} Authenticated`, `Successfully signed in via ${provider.charAt(0).toUpperCase() + provider.slice(1)}!`, 'success');
-        setTimeout(() => window.location.href = "index.html", 500);
+        window.showToast("Login successful!", "", 'success');
       }
     }
-</script>
+  </script>
 </body>
 </html>

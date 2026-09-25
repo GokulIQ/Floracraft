@@ -124,6 +124,7 @@
                 <div class="text-muted small text-truncate" style="max-width:180px;">${currentUser.email}</div>
                 <span class="badge bg-success-subtle text-success mt-1" style="font-size:0.7rem;">Club Member</span>
               </li>
+              <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-gauge me-2 text-primary"></i>User Dashboard</a></li>
               <li><a class="dropdown-item" href="wishlist.html"><i class="fa-solid fa-heart me-2 text-danger"></i>My Wishlist</a></li>
               <li><a class="dropdown-item" href="cart.html"><i class="fa-solid fa-bag-shopping me-2 text-success"></i>My Cart</a></li>
               <li><hr class="dropdown-divider"></li>
@@ -137,6 +138,23 @@
             <i class="fa-regular fa-user"></i>
           </a>
         `;
+      }
+    });
+
+    // Update mobile bottom nav links if present
+    document.querySelectorAll(".mobile-bottom-nav a[href='login.html'], .mobile-bottom-nav a[href='profile.html']").forEach((link) => {
+      if (currentUser) {
+        link.href = "profile.html";
+        const icon = link.querySelector("i");
+        if (icon) icon.className = "fa-solid fa-gauge";
+        const span = link.querySelector("span");
+        if (span) span.textContent = "Dashboard";
+      } else {
+        link.href = "login.html";
+        const icon = link.querySelector("i");
+        if (icon) icon.className = "fa-regular fa-user";
+        const span = link.querySelector("span");
+        if (span) span.textContent = "Sign In";
       }
     });
   }

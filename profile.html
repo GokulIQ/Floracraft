@@ -1,21 +1,836 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting - FloraCraft</title>
-  <script src="assets/js/auth.js"></script>
-  <script>
-    (function () {
-      const user = window.getCurrentUser();
-      if (user && (user.role === 'admin' || user.email === 'admin@floracraft.com')) {
-        window.location.replace("admin.html");
-      } else {
-        window.location.replace("index.html");
-      }
-    })();
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - FloraCraft Botanical Store</title>
+  <meta name="description" content="Manage your FloraCraft botanical orders, care subscriptions, delivery preferences, and profile settings.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
 </head>
-<body style="font-family:sans-serif; text-align:center; padding-top:50px;">
-  <p>Redirecting to FloraCraft...</p>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo">
+          <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+          <span>Flora<span style="color:var(--accent);">Craft</span></span>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="d-none d-lg-block">
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html"><i class="fa-solid fa-store me-2 text-primary"></i>Home 1 - Gardening Store</a></li>
+                <li><a class="dropdown-item" href="home-2.html"><i class="fa-solid fa-tree me-2 text-success"></i>Home 2 - Nursery & Landscaping</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Studios</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="customizer.html"><i class="fa-solid fa-wand-magic-sparkles me-2 text-accent"></i>Pot & Plant Pairer Studio</a></li>
+                <li><a class="dropdown-item" href="plant-calendar.html"><i class="fa-solid fa-calendar-check me-2 text-success"></i>Care & Watering Calendar</a></li>
+                <li><a class="dropdown-item" href="ar-visualizer.html"><i class="fa-solid fa-cube me-2 text-primary"></i>AR Room Visualizer</a></li>
+                <li><a class="dropdown-item" href="pot-calculator.html"><i class="fa-solid fa-calculator me-2 text-secondary"></i>Soil & Fertilizer Calculator</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="plant-care.html">Guides</a></li>
+            <li class="nav-item"><a class="nav-link" href="bulk-orders.html">B2B</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="pricing.html">Maintenance Plans</a></li>
+                <li><a class="dropdown-item" href="wishlist.html">My Wishlist</a></li>
+                <li><a class="dropdown-item" href="compare.html">Product Compare</a></li>
+                <li><a class="dropdown-item" href="contact.html">Contact & FAQs</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="404.html">404 Error Page</a></li>
+                <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active fw-bold text-primary-light" href="profile.html"><i class="fa-solid fa-gauge me-1"></i>Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button class="icon-btn rtl-toggle-btn" title="Toggle Layout Direction">
+            <i class="fa-solid fa-globe"></i>
+          </button>
+          <button class="icon-btn theme-toggle-btn" title="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <button type="button" class="icon-btn cart-drawer-trigger" title="Shopping Cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-count cart-count-badge" style="display:none;">0</span>
+          </button>
+
+          <!-- Auth Nav Menu -->
+          <div class="auth-nav-container ms-1">
+            <a href="login.html" class="icon-btn" title="Sign In">
+              <i class="fa-regular fa-user"></i>
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Menu -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenuOffcanvas">
+    <div class="offcanvas-header">
+      <div class="brand-logo">
+        <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+        <span>Flora<span style="color:var(--accent);">Craft</span></span>
+      </div>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="mobile-menu-list">
+        <li class="mobile-menu-item"><a href="index.html" class="mobile-menu-link">Home 1 (Gardening Store)</a></li>
+        <li class="mobile-menu-item"><a href="home-2.html" class="mobile-menu-link">Home 2 (Landscaping & Nursery)</a></li>
+        <li class="mobile-menu-item"><a href="profile.html" class="mobile-menu-link active text-primary fw-bold"><i class="fa-solid fa-gauge me-2"></i>User Dashboard</a></li>
+        <li class="mobile-menu-item"><a href="products.html" class="mobile-menu-link">All Products</a></li>
+        <li class="mobile-menu-item"><a href="customizer.html" class="mobile-menu-link text-accent fw-bold"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Pot & Plant Pairer Studio</a></li>
+        <li class="mobile-menu-item"><a href="plant-calendar.html" class="mobile-menu-link text-success fw-bold"><i class="fa-solid fa-calendar-check me-2"></i>Care & Watering Calendar</a></li>
+        <li class="mobile-menu-item"><a href="plant-care.html" class="mobile-menu-link">Plant Care Guides</a></li>
+        <li class="mobile-menu-item"><a href="bulk-orders.html" class="mobile-menu-link">B2B & Bulk Orders</a></li>
+        <li class="mobile-menu-item"><a href="pricing.html" class="mobile-menu-link">Maintenance Plans</a></li>
+        <li class="mobile-menu-item"><a href="wishlist.html" class="mobile-menu-link"><i class="fa-regular fa-heart me-2 text-danger"></i>My Wishlist</a></li>
+        <li class="mobile-menu-item"><a href="contact.html" class="mobile-menu-link">Contact & FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Breadcrumb & Hero Banner -->
+  <div class="page-hero">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-1 small">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">User Dashboard</li>
+        </ol>
+      </nav>
+      <h1 class="page-hero-title mb-1">User Dashboard</h1>
+      <p class="page-hero-subtitle mb-0">Manage your botanical orders, delivery preferences, active plant care plans, and personal account details.</p>
+    </div>
+  </div>
+
+  <!-- Dashboard Main Container -->
+  <main class="container py-5 flex-grow-1">
+    
+    <!-- Non-Logged-In Guest Banner (Hidden when logged in) -->
+    <div id="guestAlertBox" class="alert alert-info border-0 shadow-sm rounded-4 p-4 mb-5" style="display: none;">
+      <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+        <div class="d-flex align-items-center gap-3">
+          <div class="rounded-circle bg-primary-soft text-primary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 52px; height: 52px; font-size: 1.5rem;">
+            <i class="fa-solid fa-user-lock"></i>
+          </div>
+          <div>
+            <h5 class="fw-bold mb-1">Sign In to Access Your Full Dashboard</h5>
+            <p class="text-muted mb-0 small">You are currently browsing as a guest. Log in to track your live orders and botanical care subscriptions.</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-2 flex-shrink-0">
+          <button class="btn btn-outline-primary" onclick="quickLoginDemo()">
+            <i class="fa-solid fa-bolt me-1"></i> Demo Login
+          </button>
+          <a href="login.html" class="btn btn-primary">
+            <i class="fa-solid fa-right-to-bracket me-1"></i> Sign In
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 g-lg-5">
+      
+      <!-- Left Column: User Profile Sidebar Card -->
+      <div class="col-lg-4 col-xl-3">
+        <div class="card border-0 bg-surface shadow-sm rounded-4 p-4 sticky-lg-top" style="top: var(--sticky-offset, 100px); z-index: 10;">
+          
+          <!-- Avatar & User Info -->
+          <div class="text-center pb-3 border-bottom">
+            <div class="position-relative d-inline-block mb-3">
+              <img id="dashAvatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="User Avatar" class="rounded-circle shadow-sm object-fit-cover" style="width: 88px; height: 88px; border: 3px solid var(--primary-light);">
+              <span class="position-absolute bottom-0 end-0 bg-success border border-2 border-white rounded-circle p-1" title="Online Member"></span>
+            </div>
+            <h5 id="dashName" class="fw-bold mb-1">Eleanor Vance</h5>
+            <p id="dashEmail" class="text-muted small mb-2 text-truncate">eleanor@example.com</p>
+            <span id="dashBadge" class="badge bg-success-subtle text-success rounded-pill px-3 py-1 fw-bold">
+              <i class="fa-solid fa-seedling me-1"></i> Club Member
+            </span>
+          </div>
+
+          <!-- Quick Stats Mini-Row -->
+          <div class="row g-2 text-center py-3 border-bottom small">
+            <div class="col-6">
+              <div class="text-muted" style="font-size:0.75rem;">Member Since</div>
+              <div id="dashMemberSince" class="fw-bold text-main">Jan 2026</div>
+            </div>
+            <div class="col-6">
+              <div class="text-muted" style="font-size:0.75rem;">Eco-Points</div>
+              <div id="dashPoints" class="fw-bold text-primary">450 Pts</div>
+            </div>
+          </div>
+
+          <!-- Dashboard Navigation Tabs (Pills) -->
+          <div class="nav flex-column nav-pills gap-1 pt-3" id="dashboardTab" role="tablist">
+            <button class="nav-link active text-start py-2 px-3 rounded-3 d-flex align-items-center gap-2" id="tab-overview-btn" data-bs-toggle="pill" data-bs-target="#tab-overview" type="button" role="tab">
+              <i class="fa-solid fa-chart-pie text-primary" style="width: 20px;"></i> Overview
+            </button>
+            <button class="nav-link text-start py-2 px-3 rounded-3 d-flex align-items-center gap-2" id="tab-orders-btn" data-bs-toggle="pill" data-bs-target="#tab-orders" type="button" role="tab">
+              <i class="fa-solid fa-box-open text-primary" style="width: 20px;"></i> Order History
+              <span id="orderCountBadge" class="badge bg-primary rounded-pill ms-auto" style="font-size:0.7rem;">3</span>
+            </button>
+            <button class="nav-link text-start py-2 px-3 rounded-3 d-flex align-items-center gap-2" id="tab-subs-btn" data-bs-toggle="pill" data-bs-target="#tab-subs" type="button" role="tab">
+              <i class="fa-solid fa-calendar-check text-primary" style="width: 20px;"></i> Plant Care Plans
+            </button>
+            <button class="nav-link text-start py-2 px-3 rounded-3 d-flex align-items-center gap-2" id="tab-address-btn" data-bs-toggle="pill" data-bs-target="#tab-address" type="button" role="tab">
+              <i class="fa-solid fa-location-dot text-primary" style="width: 20px;"></i> Addresses
+            </button>
+            <button class="nav-link text-start py-2 px-3 rounded-3 d-flex align-items-center gap-2" id="tab-settings-btn" data-bs-toggle="pill" data-bs-target="#tab-settings" type="button" role="tab">
+              <i class="fa-solid fa-gear text-primary" style="width: 20px;"></i> Profile Settings
+            </button>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="pt-4 mt-auto border-top">
+            <button class="btn btn-outline-danger w-100 rounded-pill d-flex align-items-center justify-content-center gap-2" onclick="window.logoutUser()">
+              <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Dashboard Tab Panels -->
+      <div class="col-lg-8 col-xl-9">
+        <div class="tab-content" id="dashboardTabContent">
+          
+          <!-- TAB 1: OVERVIEW -->
+          <div class="tab-pane fade show active" id="tab-overview" role="tabpanel">
+            
+            <!-- Welcome Header Card -->
+            <div class="card border-0 bg-primary-dark text-white rounded-4 p-4 mb-4 shadow-sm position-relative overflow-hidden">
+              <div class="position-relative z-1">
+                <span class="badge bg-white text-primary fw-bold mb-2">FloraCraft Club Membership</span>
+                <h3 class="fw-bold mb-1" id="dashWelcomeName">Welcome back, Eleanor!</h3>
+                <p class="text-white-50 mb-0 small">Your indoor botanical sanctuary is thriving. You have 1 scheduled plant delivery arriving this week.</p>
+              </div>
+              <div class="position-absolute end-0 bottom-0 opacity-10 pe-4 pb-2 d-none d-md-block" style="font-size: 8rem; pointer-events: none;">
+                <i class="fa-solid fa-seedling"></i>
+              </div>
+            </div>
+
+            <!-- Stats Metric Cards -->
+            <div class="row g-3 mb-4">
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-surface shadow-sm rounded-4 p-3 text-center h-100">
+                  <div class="text-primary mb-2" style="font-size: 1.5rem;"><i class="fa-solid fa-bag-shopping"></i></div>
+                  <div class="fs-4 fw-bold text-main" id="statOrdersCount">3</div>
+                  <div class="text-muted small">Completed Orders</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-surface shadow-sm rounded-4 p-3 text-center h-100">
+                  <div class="text-success mb-2" style="font-size: 1.5rem;"><i class="fa-solid fa-spa"></i></div>
+                  <div class="fs-4 fw-bold text-main" id="statActivePlants">6</div>
+                  <div class="text-muted small">Sanctuary Plants</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-surface shadow-sm rounded-4 p-3 text-center h-100">
+                  <div class="text-danger mb-2" style="font-size: 1.5rem;"><i class="fa-solid fa-heart"></i></div>
+                  <div class="fs-4 fw-bold text-main" id="statWishlistCount">0</div>
+                  <div class="text-muted small">Wishlist Favorites</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-surface shadow-sm rounded-4 p-3 text-center h-100">
+                  <div class="text-accent mb-2" style="font-size: 1.5rem;"><i class="fa-solid fa-award"></i></div>
+                  <div class="fs-4 fw-bold text-main">Emerald</div>
+                  <div class="text-muted small">Club Tier</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Orders Section -->
+            <div class="card border-0 bg-surface shadow-sm rounded-4 p-4 mb-4">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="fw-bold mb-0"><i class="fa-solid fa-clock-rotate-left me-2 text-primary"></i>Recent Orders</h5>
+                <button class="btn btn-sm btn-link text-primary text-decoration-none fw-bold" onclick="document.getElementById('tab-orders-btn').click()">View All Orders →</button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 small">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Date</th>
+                      <th>Items</th>
+                      <th>Total</th>
+                      <th>Status</th>
+                      <th class="text-end">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recentOrdersTbody">
+                    <!-- Dynamic orders injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Care & Watering Next Action Banner -->
+            <div class="card border-0 bg-surface-alt shadow-sm rounded-4 p-4">
+              <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; font-size: 1.25rem;">
+                    <i class="fa-solid fa-droplet"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-1">Watering Reminder: Peace Lily & Areca Palm</h6>
+                    <p class="text-muted mb-0 small">Scheduled for tomorrow morning. Check moisture level before watering.</p>
+                  </div>
+                </div>
+                <a href="plant-calendar.html" class="btn btn-sm btn-outline-success flex-shrink-0">
+                  <i class="fa-solid fa-calendar me-1"></i> View Care Calendar
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TAB 2: ORDER HISTORY -->
+          <div class="tab-pane fade" id="tab-orders" role="tabpanel">
+            <div class="card border-0 bg-surface shadow-sm rounded-4 p-4">
+              <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 mb-4">
+                <div>
+                  <h4 class="fw-bold mb-1"><i class="fa-solid fa-box-archive me-2 text-primary"></i>Complete Order History</h4>
+                  <p class="text-muted small mb-0">Track shipments, download printable invoices, and view receipt details.</p>
+                </div>
+                <a href="products.html" class="btn btn-sm btn-primary">
+                  <i class="fa-solid fa-cart-plus me-1"></i> Shop New Plants
+                </a>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="table-light small text-muted">
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Date</th>
+                      <th>Items Summary</th>
+                      <th>Total Amount</th>
+                      <th>Status</th>
+                      <th class="text-end">Invoice</th>
+                    </tr>
+                  </thead>
+                  <tbody id="allOrdersTbody">
+                    <!-- Injected by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: PLANT CARE PLANS & SUBSCRIPTIONS -->
+          <div class="tab-pane fade" id="tab-subs" role="tabpanel">
+            <div class="card border-0 bg-surface shadow-sm rounded-4 p-4 mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold mb-0"><i class="fa-solid fa-seedling me-2 text-success"></i>Active Botanical Subscriptions</h4>
+                <span class="badge bg-success px-3 py-2 rounded-pill">Active Tier</span>
+              </div>
+              <p class="text-muted small mb-4">Your recurring botanical supplies & seasonal planter deliveries.</p>
+
+              <div class="border rounded-4 p-4 bg-surface-alt mb-4">
+                <div class="row align-items-center g-3">
+                  <div class="col-md-7">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="rounded-3 bg-primary text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 52px; height: 52px; font-size: 1.5rem;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                      </div>
+                      <div>
+                        <h5 class="fw-bold mb-1">Master Botanist Monthly Plan</h5>
+                        <div class="text-muted small">Renews automatically on the 1st of every month • $49.00/mo</div>
+                      </div>
+                    </div>
+                    <ul class="list-unstyled small text-muted mt-3 mb-0 ps-1">
+                      <li><i class="fa-solid fa-check text-success me-2"></i>1 Handcrafted Terracotta Pot</li>
+                      <li><i class="fa-solid fa-check text-success me-2"></i>2 Organic Bioactive Soil Bags</li>
+                      <li><i class="fa-solid fa-check text-success me-2"></i>Priority 24/7 Plant Doctor Diagnosis Access</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-5 text-md-end">
+                    <div class="mb-2">
+                      <span class="text-muted small">Next Delivery:</span>
+                      <div class="fw-bold text-main">October 01, 2026</div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-secondary me-2" onclick="window.showToast('Subscription Paused', 'Your subscription is paused for next cycle.', 'warning')">Pause Plan</button>
+                    <a href="pricing.html" class="btn btn-sm btn-primary">Upgrade Plan</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center small text-muted">
+                <span>Want to explore more plant care packages?</span>
+                <a href="pricing.html" class="text-primary fw-bold">Browse All Plans →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: SAVED ADDRESSES -->
+          <div class="tab-pane fade" id="tab-address" role="tabpanel">
+            <div class="card border-0 bg-surface shadow-sm rounded-4 p-4">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                  <h4 class="fw-bold mb-1"><i class="fa-solid fa-location-dot me-2 text-primary"></i>Delivery Addresses</h4>
+                  <p class="text-muted small mb-0">Manage your saved addresses for expedited 1-click nursery checkout.</p>
+                </div>
+                <button class="btn btn-sm btn-primary" onclick="window.showToast('Address Book', 'Add address modal ready.', 'info')">
+                  <i class="fa-solid fa-plus me-1"></i> Add New Address
+                </button>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="border border-2 border-primary rounded-4 p-4 position-relative bg-surface">
+                    <span class="badge bg-primary position-absolute top-0 end-0 m-3">Default Delivery</span>
+                    <h6 class="fw-bold mb-2" id="addrCardName">Eleanor Vance</h6>
+                    <p class="text-muted small mb-2" id="addrCardText">
+                      742 Evergreen Botanical Way<br>
+                      Portland, OR 97201<br>
+                      United States
+                    </p>
+                    <div class="text-muted small mb-3"><i class="fa-solid fa-phone me-1"></i> <span id="addrCardPhone">+1 (503) 555-0198</span></div>
+                    <button class="btn btn-sm btn-outline-primary" onclick="document.getElementById('tab-settings-btn').click()">Edit Address</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="border rounded-4 p-4 position-relative bg-surface-alt">
+                    <span class="badge bg-secondary position-absolute top-0 end-0 m-3">Office</span>
+                    <h6 class="fw-bold mb-2">FloraCraft Botanical Co. Studio</h6>
+                    <p class="text-muted small mb-2">
+                      1200 NW 23rd Ave, Suite 400<br>
+                      Portland, OR 97210<br>
+                      United States
+                    </p>
+                    <div class="text-muted small mb-3"><i class="fa-solid fa-phone me-1"></i> +1 (503) 555-9921</div>
+                    <button class="btn btn-sm btn-outline-secondary">Edit Address</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 5: PROFILE SETTINGS -->
+          <div class="tab-pane fade" id="tab-settings" role="tabpanel">
+            <div class="card border-0 bg-surface shadow-sm rounded-4 p-4">
+              <h4 class="fw-bold mb-1"><i class="fa-solid fa-user-gear me-2 text-primary"></i>Profile & Account Settings</h4>
+              <p class="text-muted small mb-4">Update your personal information, contact numbers, and default city.</p>
+
+              <form id="profileEditForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Full Name</label>
+                    <input type="text" id="editName" class="form-control" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Email Address</label>
+                    <input type="email" id="editEmail" class="form-control" required readonly title="Email cannot be modified directly.">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Phone Number</label>
+                    <input type="tel" id="editPhone" class="form-control" placeholder="+1 (503) 555-0198">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Default Delivery City / State</label>
+                    <input type="text" id="editAddress" class="form-control" placeholder="Portland, OR">
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-primary px-4 py-2">
+                      <i class="fa-solid fa-floppy-disk me-1"></i> Save Profile Changes
+                    </button>
+                    <button type="reset" class="btn btn-outline-secondary ms-2 px-3 py-2">Reset</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Dynamic Invoice Modal -->
+  <div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-4 border-0 shadow-lg bg-surface">
+        <div class="modal-header border-bottom p-4">
+          <div class="d-flex align-items-center gap-2">
+            <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+            <h5 class="modal-title fw-bold" id="invoiceModalLabel">FloraCraft Order Invoice</h5>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" id="invoiceModalBody">
+          <!-- Injected dynamically -->
+        </div>
+        <div class="modal-footer border-top p-3">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary btn-sm" onclick="window.print()"><i class="fa-solid fa-print me-1"></i> Print Invoice</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav">
+    <ul class="mobile-nav-items">
+      <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+      <li><a href="products.html" class="mobile-nav-link"><i class="fa-solid fa-shop"></i><span>Shop</span></a></li>
+      <li><a href="customizer.html" class="mobile-nav-link"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Studio</span></a></li>
+      <li><a href="javascript:void(0)" class="mobile-nav-link cart-drawer-trigger"><i class="fa-solid fa-bag-shopping"></i><span class="mobile-nav-badge cart-count-badge" style="display:none;">0</span><span>Cart</span></a></li>
+      <li><a href="profile.html" class="mobile-nav-link active"><i class="fa-solid fa-gauge"></i><span>Dashboard</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="backToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container py-5">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="brand-logo mb-3">
+            <span class="brand-icon"><i class="fa-solid fa-seedling"></i></span>
+            <span>Flora<span style="color:var(--accent);">Craft</span></span>
+          </a>
+          <p class="text-white-50 mb-4 pe-lg-3">
+            Dedicated to bringing lush living greenery, artisanal pottery craftsmanship, and certified horticultural science into contemporary homes and workspaces.
+          </p>
+          <div class="footer-contact-info d-flex flex-column gap-2 text-white-50 small mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-location-dot text-primary-light"></i>
+              <span>742 Evergreen Botanical Way, Portland, OR 97201</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-phone text-primary-light"></i>
+              <span>+1 (800) 456-GROW (4769)</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home Store</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">All Plants & Pots</a></li>
+            <li><a href="pricing.html">Care Plans</a></li>
+            <li><a href="profile.html">User Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5>Botanical Studios</h5>
+          <ul class="footer-links">
+            <li><a href="customizer.html">Pot Pairer Studio</a></li>
+            <li><a href="plant-calendar.html">Watering Calendar</a></li>
+            <li><a href="ar-visualizer.html">AR Room Visualizer</a></li>
+            <li><a href="pot-calculator.html">Soil Calculator</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5>Stay Connected</h5>
+          <p class="text-white-50 small mb-3">Join 15,000+ plant lovers. Get weekly care tips and 15% off your next pottery order.</p>
+          <form class="footer-newsletter d-flex mb-3" onsubmit="event.preventDefault(); window.showToast && window.showToast('Subscribed!', 'Welcome to FloraCraft Botanical Circle.', 'success'); this.reset();">
+            <input type="email" placeholder="Your email address..." class="form-control" required>
+            <button type="submit" class="btn btn-primary">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom text-center text-white-50 small pt-4 mt-4 border-top border-white-10">
+        © 2026 FloraCraft Botanical Co. All rights reserved. Handcrafted with eco-friendly love.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- User Dashboard Script Logic -->
+  <script>
+    function getStoredOrders() {
+      const stored = localStorage.getItem("floracraft_orders");
+      if (stored) {
+        try {
+          return JSON.parse(stored);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      // Seed realistic default orders if none in local storage
+      return [
+        {
+          id: "FC-9842",
+          date: "Sep 22, 2026",
+          items: [
+            { name: "Monstera Deliciosa (Swiss Cheese Plant)", qty: 1, price: 48.00 },
+            { name: "Artisanal Terracotta Pot (Large)", qty: 1, price: 34.00 }
+          ],
+          total: 82.00,
+          status: "Delivered",
+          badgeClass: "bg-success"
+        },
+        {
+          id: "FC-9104",
+          date: "Sep 15, 2026",
+          items: [
+            { name: "Peace Lily (Spathiphyllum)", qty: 1, price: 36.00 },
+            { name: "Bioactive Organic Potting Soil 10L", qty: 2, price: 28.00 }
+          ],
+          total: 64.00,
+          status: "In Transit",
+          badgeClass: "bg-info"
+        },
+        {
+          id: "FC-8430",
+          date: "Aug 28, 2026",
+          items: [
+            { name: "Japanese Bonsai Pruning Shears", qty: 1, price: 29.00 }
+          ],
+          total: 29.00,
+          status: "Delivered",
+          badgeClass: "bg-success"
+        }
+      ];
+    }
+
+    function renderDashboardData() {
+      const user = window.getCurrentUser();
+      const guestBox = document.getElementById("guestAlertBox");
+
+      if (!user) {
+        if (guestBox) guestBox.style.display = "block";
+        // Render fallback guest display
+        document.getElementById("dashName").textContent = "Guest Visitor";
+        document.getElementById("dashEmail").textContent = "guest@floracraft.com";
+        document.getElementById("dashWelcomeName").textContent = "Welcome, Botanical Guest!";
+        document.getElementById("dashBadge").innerHTML = '<i class="fa-solid fa-user me-1"></i> Guest Explorer';
+      } else {
+        if (guestBox) guestBox.style.display = "none";
+        document.getElementById("dashName").textContent = user.name || "Botanical Member";
+        document.getElementById("dashEmail").textContent = user.email || "";
+        document.getElementById("dashWelcomeName").textContent = `Welcome back, ${(user.name || '').split(' ')[0] || 'Member'}!`;
+        if (user.avatar) document.getElementById("dashAvatar").src = user.avatar;
+        if (user.memberSince) document.getElementById("dashMemberSince").textContent = user.memberSince;
+        
+        // Populate profile edit inputs
+        document.getElementById("editName").value = user.name || "";
+        document.getElementById("editEmail").value = user.email || "";
+        document.getElementById("editPhone").value = user.phone || "";
+        document.getElementById("editAddress").value = user.address || "";
+        
+        document.getElementById("addrCardName").textContent = user.name || "Eleanor Vance";
+        document.getElementById("addrCardText").innerHTML = `${user.address || '742 Evergreen Botanical Way'}<br>Portland, OR 97201<br>United States`;
+        document.getElementById("addrCardPhone").textContent = user.phone || "+1 (503) 555-0198";
+      }
+
+      // Render Wishlist Stats
+      const wishlist = JSON.parse(localStorage.getItem("floracraft_wishlist") || "[]");
+      document.getElementById("statWishlistCount").textContent = wishlist.length;
+
+      // Render Orders
+      const orders = getStoredOrders();
+      document.getElementById("statOrdersCount").textContent = orders.length;
+      document.getElementById("orderCountBadge").textContent = orders.length;
+
+      // Render recent orders (first 2)
+      const recentTbody = document.getElementById("recentOrdersTbody");
+      recentTbody.innerHTML = "";
+      orders.slice(0, 2).forEach(order => {
+        const itemNames = order.items.map(i => `${i.name} (x${i.qty || 1})`).join(", ");
+        recentTbody.innerHTML += `
+          <tr>
+            <td class="fw-bold text-primary">#${order.id}</td>
+            <td class="text-muted">${order.date}</td>
+            <td class="text-truncate" style="max-width: 200px;" title="${itemNames}">${itemNames}</td>
+            <td class="fw-bold">$${parseFloat(order.total).toFixed(2)}</td>
+            <td><span class="badge ${order.badgeClass || 'bg-success'} rounded-pill">${order.status || 'Delivered'}</span></td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-outline-primary py-1 px-2" onclick="viewInvoice('${order.id}')">
+                <i class="fa-solid fa-receipt"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+
+      // Render all orders
+      const allTbody = document.getElementById("allOrdersTbody");
+      allTbody.innerHTML = "";
+      orders.forEach(order => {
+        const itemNames = order.items.map(i => `${i.name} (x${i.qty || 1})`).join(", ");
+        allTbody.innerHTML += `
+          <tr>
+            <td class="fw-bold text-primary">#${order.id}</td>
+            <td>${order.date}</td>
+            <td class="text-truncate" style="max-width: 250px;" title="${itemNames}">${itemNames}</td>
+            <td class="fw-bold">$${parseFloat(order.total).toFixed(2)}</td>
+            <td><span class="badge ${order.badgeClass || 'bg-success'} rounded-pill">${order.status || 'Delivered'}</span></td>
+            <td class="text-end">
+              <button class="btn btn-sm btn-outline-primary py-1 px-3" onclick="viewInvoice('${order.id}')">
+                <i class="fa-solid fa-file-invoice me-1"></i> View
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    function quickLoginDemo() {
+      const res = window.loginUser("gardener@floracraft.com", "password123");
+      if (res.success) {
+        window.showToast("Signed In", "Logged in as Gardener demo account.", "success");
+        renderDashboardData();
+      }
+    }
+
+    function viewInvoice(orderId) {
+      const orders = getStoredOrders();
+      const order = orders.find(o => o.id === orderId) || orders[0];
+      const user = window.getCurrentUser() || { name: "Eleanor Vance", email: "eleanor@example.com", address: "Portland, OR" };
+      
+      const modalBody = document.getElementById("invoiceModalBody");
+      let itemsHtml = "";
+      (order.items || []).forEach(item => {
+        itemsHtml += `
+          <tr>
+            <td>${item.name}</td>
+            <td class="text-center">${item.qty || 1}</td>
+            <td class="text-end">$${parseFloat(item.price || 0).toFixed(2)}</td>
+            <td class="text-end fw-bold">$${(parseFloat(item.price || 0) * (item.qty || 1)).toFixed(2)}</td>
+          </tr>
+        `;
+      });
+
+      modalBody.innerHTML = `
+        <div class="p-2">
+          <div class="d-flex justify-content-between align-items-start mb-4 border-bottom pb-3">
+            <div>
+              <h4 class="fw-bold text-primary mb-1">FloraCraft Nursery & Pottery</h4>
+              <p class="text-muted small mb-0">742 Evergreen Botanical Way, Portland, OR 97201<br>care@floracraft.com</p>
+            </div>
+            <div class="text-end">
+              <h5 class="fw-bold mb-1">INVOICE #${order.id}</h5>
+              <div class="text-muted small">Date: ${order.date}</div>
+              <span class="badge ${order.badgeClass || 'bg-success'} mt-1">${order.status || 'Paid & Delivered'}</span>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4 small">
+            <div class="col-6">
+              <div class="text-muted fw-bold">BILLED TO:</div>
+              <div class="fw-bold text-main">${user.name}</div>
+              <div class="text-muted">${user.email}</div>
+              <div class="text-muted">${user.address || 'Portland, OR'}</div>
+            </div>
+            <div class="col-6 text-end">
+              <div class="text-muted fw-bold">PAYMENT METHOD:</div>
+              <div>Visa ending in 4242</div>
+              <div class="text-muted">Eco-Friendly Nursery Express Delivery</div>
+            </div>
+          </div>
+
+          <table class="table table-bordered align-middle small mb-3">
+            <thead class="table-light">
+              <tr>
+                <th>Botanical Item</th>
+                <th class="text-center" style="width: 80px;">Qty</th>
+                <th class="text-end" style="width: 100px;">Price</th>
+                <th class="text-end" style="width: 120px;">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${itemsHtml}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" class="text-end fw-bold">Nursery Shipping:</td>
+                <td class="text-end text-success fw-bold">FREE</td>
+              </tr>
+              <tr class="table-light">
+                <td colspan="3" class="text-end fw-bold fs-6">Grand Total:</td>
+                <td class="text-end fw-bold fs-6 text-primary">$${parseFloat(order.total).toFixed(2)}</td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <div class="alert alert-success-subtle py-2 px-3 small rounded-3 mb-0 text-success">
+            <i class="fa-solid fa-shield-heart me-1"></i> Covered by FloraCraft 30-Day Plant Health Guarantee.
+          </div>
+        </div>
+      `;
+
+      const modal = new bootstrap.Modal(document.getElementById('invoiceModal'));
+      modal.show();
+    }
+
+    // Profile form submission
+    document.getElementById("profileEditForm")?.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const updated = {
+        name: document.getElementById("editName").value,
+        phone: document.getElementById("editPhone").value,
+        address: document.getElementById("editAddress").value
+      };
+      const ok = window.updateUserProfile(updated);
+      if (ok) {
+        window.showToast("Profile Updated", "Your account settings have been saved successfully!", "success");
+        renderDashboardData();
+      } else {
+        window.showToast("Update Notice", "Please sign in to save permanent profile changes.", "info");
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderDashboardData();
+    });
+  </script>
 </body>
 </html>

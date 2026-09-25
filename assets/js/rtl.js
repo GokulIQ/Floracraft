@@ -29,6 +29,9 @@
     const nextDir = currentDir === "ltr" ? "rtl" : "ltr";
     setDir(nextDir);
     renderDirectionLabels(nextDir);
+    if (window.showToast) {
+      window.showToast("Direction Changed", `Switched to ${nextDir.toUpperCase()} layout.`, "info");
+    }
   };
 
   document.addEventListener("DOMContentLoaded", () => {

@@ -372,6 +372,31 @@ ul, ol {
   opacity: 1;
 }
 
+/* Form Check / Checkbox Dark Mode & Contrast Fix */
+.form-check-input:checked {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.form-check-input:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px var(--primary-soft) !important;
+}
+
+[data-theme="dark"] .form-check-input {
+  background-color: var(--bg-surface-elevated) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .form-check-input:checked {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+[data-theme="dark"] .form-check-label {
+  color: var(--text-muted) !important;
+}
+
 /* Input group icon container — dark mode contrast fix */
 [data-theme="dark"] .input-group-text {
   background-color: var(--bg-surface-elevated) !important;
@@ -607,23 +632,34 @@ ul, ol {
 }
 
 .brand-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   font-family: var(--font-heading);
   font-size: 1.7rem;
   font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.03em;
-}
-
-.auth-brand-logo {
   color: var(--text-main);
+  letter-spacing: -0.03em;
   text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
 }
 
-.brand-logo:hover,
-.auth-brand-logo:hover {
+.brand-logo:hover {
+  color: var(--primary-light);
+}
+
+.site-header .brand-logo,
+.site-footer .brand-logo,
+[data-theme="dark"] .brand-logo,
+[data-theme="dark"] .card .brand-logo {
+  color: #ffffff;
+}
+
+.site-header .brand-logo:hover,
+.site-footer .brand-logo:hover,
+[data-theme="dark"] .brand-logo:hover,
+[data-theme="dark"] .card .brand-logo:hover {
   color: var(--primary-light);
 }
 
@@ -633,11 +669,12 @@ ul, ol {
   border-radius: 12px;
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: #fff;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
   box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+  flex-shrink: 0;
 }
 
 /* Nav Links */
@@ -682,6 +719,16 @@ ul, ol {
   color: var(--primary);
   background: var(--primary-soft);
   font-weight: 700;
+}
+
+@media (min-width: 992px) and (max-width: 1240px) {
+  .navbar-nav {
+    gap: 2px;
+  }
+  .navbar-nav .nav-link {
+    padding: 6px 8px !important;
+    font-size: 0.82rem;
+  }
 }
 
 /* Dropdown Menus */
@@ -767,7 +814,80 @@ ul, ol {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  cursor: default;
+  cursor: pointer;
+}
+
+/* Authentication Card Actions (LTR/RTL & Dark Mode Toggles) */
+.auth-card-actions {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[dir="rtl"] .auth-card-actions {
+  right: auto !important;
+  left: 1.25rem !important;
+}
+
+.auth-card-actions .icon-btn {
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  box-shadow: var(--shadow-xs);
+}
+
+.auth-card-actions .icon-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .auth-card-actions .icon-btn {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .auth-card-actions .icon-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+/* Social Authentication Buttons */
+.btn-social {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-social:hover {
+  background-color: var(--bg-surface-alt) !important;
+  border-color: var(--border-color) !important;
+  color: var(--primary) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xs);
+}
+
+[data-theme="dark"] .btn-social {
+  background-color: var(--bg-surface-elevated) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .btn-social:hover {
+  background-color: var(--bg-surface-alt) !important;
+  border-color: var(--border-color) !important;
+  color: var(--primary-light) !important;
 }
 
 
